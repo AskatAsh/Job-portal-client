@@ -27,15 +27,15 @@ const LoginForm = () => {
       <Input inputType="email" inputText="Email" />
       <Input inputType="password" inputText="Password" />
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-4">
         <label className="flex items-center gap-2">
           <input
             type="checkbox"
-            className="checkbox checkbox-sm border-2 border-gray-300 rounded-md checked:border-none"
+            className="checkbox checkbox-sm border-2 border-gray-300 dark:border-gray-500 rounded-md checked:border-none"
           />
-          <span className="text-gray-600">Remember me</span>
+          <span className="text-gray-600 dark:text-gray-500">Remember me</span>
         </label>
-        <a href="#" className="text-blue-700 hover:underline text-sm">
+        <a href="#" className="text-blue-700 dark:text-blue-500 hover:underline text-sm">
           Forgot password?
         </a>
       </div>

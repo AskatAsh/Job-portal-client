@@ -30,11 +30,11 @@ const SignUp = () => {
         </h2>
 
         <div className="flex gap-4 mb-4 flex-col lg:flex-row max-w-md w-full">
-          <button onClick={handleGoogleSignIn} className="btn border border-gray-200 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
+          <button onClick={handleGoogleSignIn} className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
             <FcGoogle className="text-xl" />
             Sign in with Google
           </button>
-          <button className="btn border border-gray-200 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
+          <button className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
             <FaLinkedin className="text-xl text-blue-900 dark:text-blue-500" />
             Sign in with Linkedin
           </button>

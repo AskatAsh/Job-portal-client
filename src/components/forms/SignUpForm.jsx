@@ -68,14 +68,14 @@ const SignUpForm = () => {
           >
             Password*
           </label>
-          <label className="input bg-gray-50 dark:bg-gray-900 input-bordered mt-2 border-2 border-gray-200 dark:border-gray-800 focus-within:border-blue-700 focus-within:outline-none flex items-center gap-2 text-gray-800 dark:text-gray-50">
+          <label className="input bg-gray-50 dark:bg-gray-900 input-bordered mt-2 border border-gray-300 dark:border-gray-800 focus-within:border-blue-700 focus-within:outline-none flex items-center gap-2 text-gray-800 dark:text-gray-50">
             <input
               onFocus={() => setPasswordValid(true)}
               onBlur={() => setPasswordValid(false)}
               onChange={showPasswordInfo}
               type={showPass ? "text" : "password"}
               name="password"
-              placeholder="password"
+              placeholder="Enter your Password"
               className="grow"
               id="password"
               required
@@ -87,7 +87,7 @@ const SignUpForm = () => {
               {showPass ? <FaEye /> : <FaEyeSlash />}
             </button>
           </label>
-          <label className="flex items-center gap-2 mt-3">
+          <label className="flex items-center gap-2 mt-6">
             <input
               type="checkbox"
               className="checkbox checkbox-sm border-2 border-gray-300 dark:border-gray-500 rounded-md checked:border-none"
@@ -122,7 +122,7 @@ const SignUpForm = () => {
       <Button
         btnType="submit"
         btnText="Create new account"
-        btnStyle="w-full bg-blue-700 hover:bg-blue-800 outline-none border-none text-white mt-8"
+        btnStyle="w-full bg-blue-700 hover:bg-blue-800 outline-none border-none text-white mt-6"
       />
     </form>
   );

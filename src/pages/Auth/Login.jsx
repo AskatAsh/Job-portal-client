@@ -24,32 +24,29 @@ const Login = () => {
   return (
     <section className="flex flex-col md:flex-row min-h-dvh">
       {/* Left Section */}
-      <div className="flex-1 flex flex-col justify-center items-center p-8 bg-white py-28">
+      <div className="flex-1 flex flex-col justify-center items-center p-8 bg-transperant dark:bg-gray-950 py-28">
         <h2 className="text-2xl font-semibold mb-6 dark:text-white text-gray-900">
-          Welcome back
+          Welcome Back
         </h2>
 
         <div className="flex gap-4 mb-4 flex-col lg:flex-row max-w-md w-full">
-          <button
-            onClick={handleGoogleSignIn}
-            className="btn border border-gray-200 bg-transparent hover:bg-gray-100 lg:w-auto gap-2 flex-1 text-gray-800"
-          >
+          <button onClick={handleGoogleSignIn} className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
             <FcGoogle className="text-xl" />
             Sign in with Google
           </button>
-          <button className="btn border border-gray-200 bg-transparent hover:bg-gray-100 lg:w-auto gap-2 flex-1 text-gray-800">
-            <FaLinkedin className="text-xl text-blue-900 dark:text-white" />
+          <button className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
+            <FaLinkedin className="text-xl text-blue-900 dark:text-blue-500" />
             Sign in with Linkedin
           </button>
         </div>
 
-        <div className="divider w-full max-w-md mx-auto text-gray-800">or</div>
+        <div className="divider w-full max-w-md mx-auto text-gray-800 dark:text-gray-400">or</div>
 
         <LoginForm />
 
-        <p className="mt-4 text-sm text-gray-800">
+        <p className="mt-4 text-sm text-gray-800 dark:text-gray-400">
           Don&apos;t have an account?{" "}
-          <Link to={ROUTES.TOSIGNUP} className="text-blue-700 hover:underline">
+          <Link to={ROUTES.TOSIGNUP} className="text-blue-700 dark:text-blue-500 hover:underline">
             Sign up
           </Link>
         </p>

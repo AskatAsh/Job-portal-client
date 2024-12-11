@@ -13,7 +13,7 @@ const Input = ({ inputType = "text", inputText = "Username" }) => {
         type={inputType}
         id={inputType}
         placeholder={`Enter your ${inputText}`}
-        className="input input-bordered w-full mt-2 text-gray-800 dark:text-gray-50 bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 focus:outline-none focus:border-blue-700"
+        className="input input-bordered w-full mt-2 text-gray-800 dark:text-gray-50 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 focus:outline-none focus:border-blue-700"
       />
     </div>
   );
