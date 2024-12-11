@@ -3,4 +3,6 @@ export const ROUTES = {
     AUTH: '/auth',
     LOGIN: 'login',
     SIGNUP: 'signup',
+    TOLOGIN: '/auth/login',
+    TOSIGNUP: '/auth/signup',
 }

@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        isSticky ? "bg-white shadow-md" : "bg-transperant"
+        isSticky ? "bg-white" : "bg-transperant"
       }`}
     >
       <nav className="container mx-auto px-4 md:px-8 xl:px-10">
