@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        isSticky ? "bg-white dark:bg-gray-950 shadow-md" : "bg-transperant"
+        isSticky ? "bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800" : "bg-transperant dark:border-b dark:border-b-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 md:px-8 xl:px-10">
@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link
               to={ROUTES.HOME}
               className={`btn btn-ghost text-xl text-gray-800 font-semibold ${
-                isSticky ? "text-gray-800 dark:text-gray-50" : ""
+                isSticky ? "text-gray-800 dark:text-gray-100" : "dark:text-gray-100"
               }`}
             >
               <img src={logo} alt="job portal logo" className="w-10" />

@@ -4,13 +4,13 @@ import Footer from "../components/common/Footer";
 
 const AuthLayout = () => {
   return (
-    <>
+    <div className="bg-gray-50 dark:bg-gray-950">
       <Navbar />
       <main>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

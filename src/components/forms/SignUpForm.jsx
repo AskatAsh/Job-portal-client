@@ -63,12 +63,12 @@ const SignUpForm = () => {
 
         <div className="form-control relative">
           <label
-            className="block text-sm font-medium text-gray-800"
+            className="block text-sm font-medium text-gray-800 dark:text-gray-300"
             htmlFor="password"
           >
             Password*
           </label>
-          <label className="input bg-gray-50 input-bordered mt-2 border-2 border-gray-200 focus-within:border-blue-700 focus-within:outline-none flex items-center gap-2 text-gray-800">
+          <label className="input bg-gray-50 dark:bg-gray-900 input-bordered mt-2 border-2 border-gray-200 dark:border-gray-800 focus-within:border-blue-700 focus-within:outline-none flex items-center gap-2 text-gray-800 dark:text-gray-50">
             <input
               onFocus={() => setPasswordValid(true)}
               onBlur={() => setPasswordValid(false)}
@@ -82,7 +82,7 @@ const SignUpForm = () => {
             />
             <button
               onClick={handleShowPassword}
-              className="text-xl text-lightgray"
+              className="text-xl text-gray-800 dark:text-gray-400"
             >
               {showPass ? <FaEye /> : <FaEyeSlash />}
             </button>
@@ -90,13 +90,22 @@ const SignUpForm = () => {
           <label className="flex items-center gap-2 mt-3">
             <input
               type="checkbox"
-              className="checkbox checkbox-sm border-2 border-gray-300 rounded-md checked:border-none"
+              className="checkbox checkbox-sm border-2 border-gray-300 dark:border-gray-500 rounded-md checked:border-none"
             />
-            <span className="text-gray-600">Agree to out <a href="*" className="text-blue-700 hover:underline">terms</a> & <a href="*" className="text-blue-700 hover:underline">conditions</a></span>
+            <span className="text-gray-600 dark:text-gray-500">
+              Agree to our{" "}
+              <a href="*" className="text-blue-700 dark:text-blue-500 hover:underline">
+                terms
+              </a>{" "}
+              &{" "}
+              <a href="*" className="text-blue-700 dark:text-blue-500 hover:underline">
+                conditions
+              </a>
+            </span>
           </label>
           {/* password verify info */}
           <div
-            className={`p-3 max-w-[280px] rounded-xl z-50 absolute top-20 left-0 shadow-lg bg-white border text-gray-600 ${
+            className={`p-3 max-w-[280px] rounded-xl z-50 absolute top-20 left-0 shadow-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 ${
               passwordValid ? "block" : "hidden"
             }`}
           >

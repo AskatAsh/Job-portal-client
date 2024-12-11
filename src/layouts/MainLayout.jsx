@@ -5,7 +5,7 @@ import Banner from "../components/Banner";
 
 const MainLayout = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-950">
       <Navbar />
       <Banner />
       <main className="">
