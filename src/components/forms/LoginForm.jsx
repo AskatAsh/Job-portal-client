@@ -9,11 +9,11 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="w-full max-w-md space-y-4">
+    <form onSubmit={handleLogin} className="w-full max-w-md space-y-6">
       <Input inputType="email" inputText="Email" />
       <Input inputType="password" inputText="Password" />
 
-      <div className="flex justify-between items-center mt-0">
+      <div className="flex justify-between items-center">
         <label className="flex items-center gap-2">
           <input
             type="checkbox"

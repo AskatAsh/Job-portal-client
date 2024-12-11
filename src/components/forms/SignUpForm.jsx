@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../common/button";
 import Input from "./../common/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import AuthContext from "./../../context/AuthContext";
 
 const SignUpForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
+  const { createUser, setUser } = useContext(AuthContext);
 
-  const checkPassword = (e) => {
+  const checkPasswordValidity = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setPasswordValid(true);
+      return false;
+    }
+    return true;
+  };
+
+  const showPasswordInfo = (e) => {
     const password = e.target.value;
     if (password.length === 0) {
       setPasswordValid(true);
@@ -23,11 +34,31 @@ const SignUpForm = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    const isValid = checkPasswordValidity(password);
+    if (!isValid) {
+      return;
+    }
+
+    // create new user using email and password
+    createUser(email, password)
+      .then((result) => {
+        const newUser = result.user;
+        setUser(newUser);
+        form.reset();
+        alert("Account created Successfully!");
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
   };
 
   return (
     <form onSubmit={handleSignUp} className="w-full max-w-md">
-      <div className="space-y-4">
+      <div className="space-y-6">
         <Input inputType="email" inputText="Email" />
 
         <div className="form-control relative">
@@ -41,7 +72,7 @@ const SignUpForm = () => {
             <input
               onFocus={() => setPasswordValid(true)}
               onBlur={() => setPasswordValid(false)}
-              onChange={checkPassword}
+              onChange={showPasswordInfo}
               type={showPass ? "text" : "password"}
               name="password"
               placeholder="password"
@@ -55,6 +86,13 @@ const SignUpForm = () => {
             >
               {showPass ? <FaEye /> : <FaEyeSlash />}
             </button>
+          </label>
+          <label className="flex items-center gap-2 mt-3">
+            <input
+              type="checkbox"
+              className="checkbox checkbox-sm border-2 border-gray-300 rounded-md checked:border-none"
+            />
+            <span className="text-gray-600">Agree to out <a href="*" className="text-blue-700 hover:underline">terms</a> & <a href="*" className="text-blue-700 hover:underline">conditions</a></span>
           </label>
           {/* password verify info */}
           <div

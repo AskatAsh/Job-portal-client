@@ -24,7 +24,7 @@ const Login = () => {
           </button>
         </div>
 
-        <div className="divider w-full max-w-md mx-auto font-semibold">or</div>
+        <div className="divider w-full max-w-md mx-auto text-gray-800">or</div>
 
         <LoginForm />
 
