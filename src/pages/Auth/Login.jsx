@@ -3,8 +3,24 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import LoginForm from "../../components/forms/LoginForm";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 
 const Login = () => {
+  const { googleSignIn, setUser } = useContext(AuthContext);
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const newUser = result.user;
+        setUser(newUser);
+        alert("Logged in Successfully!");
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
+  };
+
   return (
     <section className="flex flex-col md:flex-row min-h-dvh">
       {/* Left Section */}
@@ -14,7 +30,10 @@ const Login = () => {
         </h2>
 
         <div className="flex gap-4 mb-4 flex-col lg:flex-row max-w-md w-full">
-          <button className="btn border border-gray-200 bg-transparent hover:bg-gray-100 lg:w-auto gap-2 flex-1 text-gray-800">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn border border-gray-200 bg-transparent hover:bg-gray-100 lg:w-auto gap-2 flex-1 text-gray-800"
+          >
             <FcGoogle className="text-xl" />
             Sign in with Google
           </button>

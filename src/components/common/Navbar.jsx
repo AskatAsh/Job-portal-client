@@ -86,7 +86,7 @@ const Navbar = () => {
             </div>
             <Link
               to={ROUTES.HOME}
-              className={`btn btn-ghost text-xl font-semibold ${
+              className={`btn btn-ghost text-xl text-gray-800 font-semibold ${
                 isSticky ? "text-gray-800 dark:text-gray-50" : ""
               }`}
             >
