@@ -1,11 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/router";
-import './index.css'
+import "./index.css";
+import AuthProvider from "./firebase/AuthProvider";
 
 function App() {
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
     </>
   );
 }
