@@ -1,21 +1,36 @@
-import { useEffect, useState } from "react";
-import logo from '../../../src/assets/images/Job-portal-logo.svg'
+import { useContext, useEffect, useState } from "react";
+import logo from "../../../src/assets/images/Job-portal-logo.svg";
+import AuthContext from "../../context/AuthContext";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../shared/constants/routes";
 
 const Navbar = () => {
-    const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const { user, setUser, signOutUser } = useContext(AuthContext);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const topScroll = window.scrollY;
-            setIsSticky(topScroll > 20);
-        }
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        alert("User Signed out!");
+        setUser(null);
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
+  };
 
-        window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    const handleScroll = () => {
+      const topScroll = window.scrollY;
+      setIsSticky(topScroll > 20);
+    };
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
-    }, [])
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header
@@ -71,8 +86,9 @@ const Navbar = () => {
               </ul>
             </div>
             <a className="btn btn-ghost text-xl text-gray-900 font-semibold">
-                <img src={logo} alt="job portal logo" className="w-10"/>
-                JobHub</a>
+              <img src={logo} alt="job portal logo" className="w-10" />
+              JobHub
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -98,7 +114,15 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn">Button</a>
+            {user && user?.email ? (
+              <button onClick={handleLogOut} className="btn">
+                Logout
+              </button>
+            ) : (
+              <Link to={ROUTES.TOLOGIN} className="btn">
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>
