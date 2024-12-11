@@ -10,9 +10,6 @@ export default {
   theme: {
     extend: {},
   },
-  daisyui: {
-    theme: ['light']
-  },
   plugins: [daisyui],
 }
 

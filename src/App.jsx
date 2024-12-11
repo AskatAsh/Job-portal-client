@@ -2,12 +2,15 @@ import { RouterProvider } from "react-router-dom";
 import router from "./routes/router";
 import "./index.css";
 import AuthProvider from "./firebase/AuthProvider";
+import ThemeProvider from "./context/ThemeContext";
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <RouterProvider router={router}></RouterProvider>
+        <ThemeProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </ThemeProvider>
       </AuthProvider>
     </>
   );

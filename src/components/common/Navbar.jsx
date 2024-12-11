@@ -1,12 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import logo from "../../../src/assets/images/Job-portal-logo.svg";
 import AuthContext from "../../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
+import useTheme from "../../hooks/useTheme";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const { user, setUser, signOutUser } = useContext(AuthContext);
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogOut = () => {
     signOutUser()
@@ -32,10 +35,24 @@ const Navbar = () => {
     };
   }, []);
 
+  const navlinks = (
+    <>
+      <li>
+        <NavLink to={ROUTES.HOME}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={ROUTES.TOLOGIN}>Login</NavLink>
+      </li>
+      <li>
+        <NavLink to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
+      </li>
+    </>
+  );
+
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        isSticky ? "bg-white" : "bg-transperant"
+        isSticky ? "bg-white dark:bg-gray-950 shadow-md" : "bg-transperant"
       }`}
     >
       <nav className="container mx-auto px-4 md:px-8 xl:px-10">
@@ -65,55 +82,33 @@ const Navbar = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Parent</a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
-              </ul>
+              >{navlinks}</ul>
             </div>
-            <a className="btn btn-ghost text-xl text-gray-900 font-semibold">
+            <Link
+              to={ROUTES.HOME}
+              className={`btn btn-ghost text-xl font-semibold ${
+                isSticky ? "text-gray-800 dark:text-gray-50" : ""
+              }`}
+            >
               <img src={logo} alt="job portal logo" className="w-10" />
               JobHub
-            </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
+            <ul className="menu menu-horizontal px-1">{navlinks}</ul>
           </div>
           <div className="navbar-end">
+            <button
+              className="btn btn-xs btn-ghost btn-circle tooltip tooltip-left mr-2"
+              data-tip={theme === "light" ? "dark" : "light"}
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? (
+                <FaMoon size={20} className="text-gray-800" />
+              ) : (
+                <FaSun size={20} className="text-yellow-300" />
+              )}
+            </button>
             {user && user?.email ? (
               <button onClick={handleLogOut} className="btn">
                 Logout
