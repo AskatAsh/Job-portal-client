@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import logo from "../../../src/assets/images/Job-portal-logo.svg";
 import AuthContext from "../../context/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import useTheme from "../../hooks/useTheme";
 import { FaMoon, FaSun } from "react-icons/fa";
+import logo from "../../../src/assets/images/jobhub-logo.png"
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -27,7 +27,6 @@ const Navbar = () => {
       const topScroll = window.scrollY;
       setIsSticky(topScroll > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
