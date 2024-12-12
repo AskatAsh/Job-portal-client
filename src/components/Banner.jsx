@@ -1,4 +1,5 @@
 import { IoSearch } from "react-icons/io5";
+import { motion } from "motion/react";
 
 const Banner = () => {
   return (
@@ -12,7 +13,7 @@ const Banner = () => {
               The <span className="text-blue-500">Easiest Way</span> to Get Your
               New Job
             </h1>
-            <p className="text-gray-500 my-6 sm:text-lg max-w-lg">
+            <p className="text-gray-500 my-8 sm:text-lg max-w-lg">
               Each month, more than 3 million job seekers turn to our website in
               their search for work, making over 140,000 applications every
               single day.
@@ -55,7 +56,7 @@ const Banner = () => {
             </div>
 
             {/* Popular Searches */}
-            <p className="mt-4 text-gray-500">
+            <p className="mt-8 text-gray-500">
               {/* Designer, Web, IOS, Developer, PHP, Senior, Engineer, */}
               <span className="font-semibold">Popular Searches: </span>
               <span className="hover:text-blue-500 hover:underline cursor-pointer">
@@ -83,21 +84,37 @@ const Banner = () => {
           </div>
 
           {/* Images */}
-          <div className="relative flex justify-start lg:justify-center sm:pl-10 md:pl-28 lg:pl-0">
-            <div className="w-64 sm:w-80 sm:h-80 p-2 sm:p-4 bg-blue-300 rounded-3xl overflow-hidden shadow-xl">
+          <div className="relative flex justify-start lg:justify-center sm:pl-10 md:pl-28 lg:pl-0 my-10 md:my-16 lg:my-0">
+            <motion.div
+              initial={{ translateX: -10, translateY: -20 }}
+              animate={{ y: [-20, 0, -20] }}
+              transition={{ duration: 8, repeat: Infinity, delay: 1, ease: "easeIn" }}
+              className="w-64 sm:w-80 sm:h-80 p-2 sm:p-4 bg-blue-300 rounded-3xl overflow-hidden shadow-xl"
+            >
               <img
                 src="https://i.ibb.co.com/16jsJXN/download.png"
                 alt="Job Interview Preparation"
                 className="w-full h-full object-cover rounded-xl"
               />
-            </div>
-            <div className="absolute lg:bottom-0 lg:right-0 w-60 sm:h-48 bg-white rounded-3xl overflow-hidden shadow-[0px_10px_20px_0px_#00000030] transform lg:translate-x-8 lg:translate-y-8 md:left-96 md:top-40 md:translate-x-6 md:translate-y-6 left-1/2 top-2/3 border-b-8 border-l-8">
+            </motion.div>
+            <motion.div
+              initial={{ translateX: -20, translateY: 70 }}
+              animate={{ x: [30, 0, 30] }} // Keyframe positions
+              transition={{
+                delay: 1.2,
+                duration: 8,
+                repeat: Infinity,
+                // repeatType: "reverse",
+                ease: "easeOut",
+              }}
+              className="absolute lg:bottom-0 lg:right-0 w-60 sm:h-48 bg-white rounded-3xl overflow-hidden shadow-[0px_10px_20px_0px_#00000030] transform lg:translate-x-8 lg:translate-y-20 left-1/3 md:left-96 top-1/3 md:top-40 md:translate-x-0 md:translate-y-0 border-b-8 border-l-8"
+            >
               <img
                 src="https://i.ibb.co.com/NL1nV4X/happy-overjoyed-business-team-celebrate-corporate-victory-93675-134733.jpg"
                 alt="Our friendly team members"
                 className="w-full h-full object-cover rounded-[18px]"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
