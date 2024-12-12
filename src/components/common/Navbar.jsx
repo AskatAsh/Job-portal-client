@@ -64,7 +64,7 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost lg:hidden p-0"
               >
-                <AiOutlineMenu size={24} />
+                <AiOutlineMenu size={20} />
                 {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -91,7 +91,7 @@ const Navbar = () => {
                 isSticky ? "text-gray-800 dark:text-gray-100" : "dark:text-gray-100"
               }`}
             >
-              <img src={logo} alt="job portal logo" className="w-10" />
+              <img src={logo} alt="job portal logo" className="w-8 sm:w-10" />
               JobHub
             </Link>
           </div>
@@ -111,11 +111,11 @@ const Navbar = () => {
               )}
             </button>
             {user && user?.email ? (
-              <button onClick={handleLogOut} className="btn">
+              <button onClick={handleLogOut} className="btn btn-sm sm:btn-md">
                 Logout
               </button>
             ) : (
-              <Link to={ROUTES.TOLOGIN} className="btn">
+              <Link to={ROUTES.TOLOGIN} className="btn btn-sm sm:btn-md">
                 Login
               </Link>
             )}
