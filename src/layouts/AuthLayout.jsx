@@ -4,7 +4,7 @@ import Footer from "../components/common/Footer";
 
 const AuthLayout = () => {
   return (
-    <div className="bg-gray-50 dark:bg-gray-950">
+    <div className="bg-gray-50 dark:bg-gray-950 font-jost">
       <Navbar />
       <main>
         <Outlet />

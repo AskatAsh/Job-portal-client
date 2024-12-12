@@ -55,7 +55,7 @@ const Navbar = () => {
         isSticky ? "bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800" : "bg-transperant dark:border-b dark:border-b-transparent"
       }`}
     >
-      <nav className="max-w-7xl w-full mx-auto px-4 md:px-8 xl:px-10">
+      <nav className="max-w-[1400px] w-full mx-auto px-4 md:px-8 xl:px-10">
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
