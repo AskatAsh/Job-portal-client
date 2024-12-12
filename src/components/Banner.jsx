@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 from-0% via-blue-100 via-50% to-blue-50 to-100% dark:from-gray-950 dark:via-slate-900 dark:to-gray-950 flex items-center justify-center overflow-hidden">
       {/* banner with text and image*/}
-      <section className="py-24 lg:py-16 px-6 md:px-12 lg:px-20">
+      <section className="py-24 lg:py-32 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <div>
@@ -12,7 +12,7 @@ const Banner = () => {
               The <span className="text-blue-500">Easiest Way</span> to Get Your
               New Job
             </h1>
-            <p className="text-gray-600 mt-4">
+            <p className="text-gray-500 my-6 sm:text-lg max-w-lg">
               Each month, more than 3 million job seekers turn to our website in
               their search for work, making over 140,000 applications every
               single day.

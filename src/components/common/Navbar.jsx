@@ -5,6 +5,7 @@ import { ROUTES } from "../../shared/constants/routes";
 import useTheme from "../../hooks/useTheme";
 import { FaMoon, FaSun } from "react-icons/fa";
 import logo from "../../../src/assets/images/jobhub-logo.png"
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -54,16 +55,17 @@ const Navbar = () => {
         isSticky ? "bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800" : "bg-transperant dark:border-b dark:border-b-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 md:px-8 xl:px-10">
+      <nav className="max-w-7xl w-full mx-auto px-4 md:px-8 xl:px-10">
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="btn btn-ghost lg:hidden p-0"
               >
-                <svg
+                <AiOutlineMenu size={24} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
                   fill="none"
@@ -76,7 +78,7 @@ const Navbar = () => {
                     strokeWidth="2"
                     d="M4 6h16M4 12h8m-8 6h16"
                   />
-                </svg>
+                </svg> */}
               </div>
               <ul
                 tabIndex={0}
