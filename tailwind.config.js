@@ -11,7 +11,10 @@ export default {
     extend: {
       fontFamily: {
         "jost": ["Jost", "sans-serif"]
-      }
+      },
+      backgroundImage: {
+        'custom-texture': "url('/fabric_texture.png')",
+      },
     },
   },
   plugins: [daisyui],

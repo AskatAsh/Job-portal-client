@@ -84,18 +84,18 @@ const Banner = () => {
 
           {/* Images */}
           <div className="relative flex justify-start lg:justify-center sm:pl-10 md:pl-28 lg:pl-0">
-            <div className="w-64 sm:w-80 sm:h-80 bg-white rounded-lg overflow-hidden shadow-lg">
+            <div className="w-64 sm:w-80 sm:h-80 p-2 sm:p-4 bg-blue-300 rounded-3xl overflow-hidden shadow-xl">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Team"
-                className="w-full h-full object-cover"
+                src="https://i.ibb.co.com/16jsJXN/download.png"
+                alt="Job Interview Preparation"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
-            <div className="absolute lg:bottom-0 lg:right-0 w-40 sm:w-48 sm:h-48 bg-white rounded-lg overflow-hidden shadow-lg transform lg:translate-x-8 lg:translate-y-8 md:left-96 md:top-40 md:translate-x-6 md:translate-y-6 left-1/2 top-2/3">
+            <div className="absolute lg:bottom-0 lg:right-0 w-60 sm:h-48 bg-white rounded-3xl overflow-hidden shadow-[0px_10px_20px_0px_#00000030] transform lg:translate-x-8 lg:translate-y-8 md:left-96 md:top-40 md:translate-x-6 md:translate-y-6 left-1/2 top-2/3 border-b-8 border-l-8">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Meeting"
-                className="w-full h-full object-cover"
+                src="https://i.ibb.co.com/NL1nV4X/happy-overjoyed-business-team-celebrate-corporate-victory-93675-134733.jpg"
+                alt="Our friendly team members"
+                className="w-full h-full object-cover rounded-[18px]"
               />
             </div>
           </div>
