@@ -9,7 +9,7 @@ const Banner = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-300 leading-tight">
               The <span className="text-blue-500">Easiest Way</span> to Get Your
               New Job
             </h1>
@@ -19,18 +19,18 @@ const Banner = () => {
               single day.
             </p>
 
-            {/* Search Box */}
-            <div className="bg-[#ffffffec] shadow-[0px_15px_30px_0px_#00000010] rounded-lg p-4 mt-6 flex flex-col sm:flex-row lg:flex-col gap-4 items-center">
+            {/* Search Box and select options*/}
+            <div className="bg-[#ffffffec] dark:bg-gray-800 shadow-[0px_15px_30px_0px_#00000010] rounded-lg p-4 mt-6 flex flex-col sm:flex-row lg:flex-col gap-4 items-center">
               <div className="flex flex-1 w-full sm:w-auto lg:w-full gap-3">
-                <div className="flex-1 flex items-center border rounded-lg px-4 h-12">
-                  <select className="flex-1 bg-transparent outline-none text-gray-500 h-full">
+                <div className="flex-1 flex items-center border dark:border-gray-600 rounded-lg px-4 h-12">
+                  <select className="flex-1 bg-transparent outline-none text-gray-500 dark:text-gray-300 h-full">
                     <option>Industry</option>
                     <option>Tech</option>
                     <option>Finance</option>
                   </select>
                 </div>
-                <div className="flex-1 flex items-center border rounded-lg px-4 h-12">
-                  <select className="flex-1 bg-transparent outline-none text-gray-500 h-full">
+                <div className="flex-1 flex items-center border dark:border-gray-600 rounded-lg px-4 h-12">
+                  <select className="flex-1 bg-transparent dark:bg-gray-800 outline-none text-gray-500 dark:text-gray-300 h-full">
                     <option>Location</option>
                     <option>Bangladesh</option>
                     <option>Pakistan</option>
@@ -40,15 +40,15 @@ const Banner = () => {
               </div>
               {/* -----------------search input with button---------------------- */}
               <div className="flex flex-1 gap-3 flex-col sm:flex-row w-full sm:w-auto lg:w-full">
-                <div className="flex-1 flex items-center border rounded-lg px-4 py-2">
+                <div className="flex-1 flex items-center border dark:border-gray-600 rounded-lg px-4 py-2">
                   {/* <span className="material-icons text-gray-400">search</span> */}
                   <input
                     type="text"
                     placeholder="Your keyword..."
-                    className="w-full md:w-auto  bg-transparent outline-none text-gray-500"
+                    className="w-full md:w-auto  bg-transparent outline-none text-gray-500 dark:text-gray-300"
                   />
                 </div>
-                <button className="btn bg-blue-500 hover:bg-blue-600 text-white md:px-6 lg:px-8 w-full sm:w-auto flex items-center gap-2">
+                <button className="btn bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 border-none text-white md:px-6 lg:px-8 w-full sm:w-auto flex items-center gap-2">
                   <IoSearch size={18} />
                   Search
                 </button>
@@ -58,7 +58,7 @@ const Banner = () => {
             {/* Popular Searches */}
             <p className="mt-8 text-gray-500">
               {/* Designer, Web, IOS, Developer, PHP, Senior, Engineer, */}
-              <span className="font-semibold">Popular Searches: </span>
+              <span className="font-semibold dark:text-gray-400">Popular Searches: </span>
               <span className="hover:text-blue-500 hover:underline cursor-pointer">
                 Designer,
               </span>{" "}
