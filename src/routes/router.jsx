@@ -6,6 +6,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "./../pages/Auth/Login";
 import SignUp from "./../pages/Auth/SignUp";
 import { ROUTES } from "../shared/constants/routes";
+import JobDetails from "../pages/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         path: ROUTES.HOME,
         element: <Home />,
       },
+      {
+        path: ROUTES.JOBDETAILS,
+        element: <JobDetails />,
+      }
     ],
   },
   {

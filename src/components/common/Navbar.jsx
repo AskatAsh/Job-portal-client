@@ -1,16 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import useTheme from "../../hooks/useTheme";
 import { FaMoon, FaSun } from "react-icons/fa";
-import logo from "../../../src/assets/images/jobhub-logo.png"
+import logo from "../../../src/assets/images/jobhub-logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const { user, setUser, signOutUser } = useContext(AuthContext);
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
 
   const handleLogOut = () => {
     signOutUser()
@@ -52,7 +53,11 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        isSticky ? "bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800" : "bg-transperant dark:border-b dark:border-b-transparent"
+        pathname === "/" || pathname === "/auth/login" || pathname === "/auth/signup" ? "bg-transparent" : "bg-white dark:bg-gray-950"
+      } ${
+        isSticky
+          ? "fixed bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800"
+          : "bg-transperant dark:border-b dark:border-b-transparent"
       }`}
     >
       <nav className="max-w-[1400px] w-full mx-auto px-4 md:px-8 xl:px-10">
@@ -83,12 +88,16 @@ const Navbar = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >{navlinks}</ul>
+              >
+                {navlinks}
+              </ul>
             </div>
             <Link
               to={ROUTES.HOME}
               className={`btn btn-ghost text-xl text-gray-800 font-semibold ${
-                isSticky ? "text-gray-800 dark:text-gray-100" : "dark:text-gray-100"
+                isSticky
+                  ? "text-gray-800 dark:text-gray-100"
+                  : "dark:text-gray-100"
               }`}
             >
               <img src={logo} alt="job portal logo" className="w-8 sm:w-10" />

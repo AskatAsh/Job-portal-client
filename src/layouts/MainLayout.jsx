@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/common/Navbar";
 import Footer from "./../components/common/Footer";
-// import Banner from '../components/Banner';
-import Banner from './../components/Banner';
 
 const MainLayout = () => {
   return (
     <div className="bg-gray-50 dark:bg-gray-950 dark:bg-custom-texture bg-repeat font-jost">
+      {/* Header with Navbar */}
       <Navbar />
-      <Banner />
-      <main className="">
+
+      {/* Main Body */}
+      <main>
         <Outlet />
       </main>
 
