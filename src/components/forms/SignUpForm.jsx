@@ -122,7 +122,7 @@ const SignUpForm = () => {
       <Button
         btnType="submit"
         btnText="Create new account"
-        btnStyle="w-full bg-blue-700 hover:bg-blue-800 outline-none border-none text-white mt-6"
+        btnStyle="w-full bg-blue-600 hover:bg-blue-800 outline-none border-none text-white mt-6"
       />
     </form>
   );

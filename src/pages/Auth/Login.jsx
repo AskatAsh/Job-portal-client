@@ -53,7 +53,7 @@ const Login = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex-1 bg-blue-600 text-white flex flex-col justify-center items-center p-8">
+      <div className="flex-1 bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-100 flex flex-col justify-center items-center p-8">
         <h2 className="text-4xl font-bold mb-4">
           Explore the world’s leading design portfolios.
         </h2>
