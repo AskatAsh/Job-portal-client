@@ -20,10 +20,8 @@ const JobDetails = () => {
     setIsLoading(false);
   };
   return (
-    <div className="h-screen pt-20">
+    <div className="pt-10 sm:pt-16">
       {isLoading ? <Loading /> : <ApplyJobBanner job={jobData} />}
-
-      <h1>Job Details page</h1>
     </div>
   );
 };
