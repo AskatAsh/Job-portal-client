@@ -20,7 +20,7 @@ const ApplyJobBanner = ({ job }) => {
   } = job;
   const { salary } = useGetSalary(salaryRange);
   return (
-    <section className="bg-gradient-to-br from-blue-50 from-0% via-white via-50% to-blue-50 to-100% dark:from-gray-950 dark:via-slate-900 dark:to-gray-950">
+    <section className="bg-gradient-to-br from-blue-50 from-0% via-whitea via-50% to-blue-50 to-100% dark:from-gray-950 dark:via-slate-900 dark:to-gray-950">
       <div className="max-w-7xl w-11/12 mx-auto flex flex-col md:flex-row md:items-center justify-between py-16 md:py-20 gap-4">
         {/* Left Section */}
         <div className="flex max-[400px]:flex-col items-start gap-4">
