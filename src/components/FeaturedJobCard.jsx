@@ -8,7 +8,7 @@ import useGetSalary from "../hooks/useGetSalary";
 import { format } from "date-fns";
 
 const FeaturedJobCard = ({ job }) => {
-  const { title, company_logo, location, salaryRange, description, company, status, jobType, category, applicationDeadline } = job;
+  const { _id, title, company_logo, location, salaryRange, description, company, status, jobType, category, applicationDeadline } = job;
   const { salary } = useGetSalary(salaryRange);
 
   return (
@@ -28,7 +28,7 @@ const FeaturedJobCard = ({ job }) => {
         <div>
           {/* Job title */}
           <h3 className="text-lg font-semibold text-gray-700 dark:text-white mb-2">
-            {title}
+            <Link to={`/jobDetails/${_id}`} className="hover:text-blue-500">{title}</Link>
           </h3>
           {/* Other info */}
           <div className="flex items-center flex-wrap gap-2 md:gap-3 text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-1">
@@ -50,7 +50,7 @@ const FeaturedJobCard = ({ job }) => {
             data-tip={description}
           >
             {description.substr(0, 65)}...{" "}
-            <Link className="text-blue-500 dark:text-blue-400 hover:underline">
+            <Link to={`/jobDetails/${_id}`} className="text-blue-500 dark:text-blue-400 hover:underline">
               Read More
             </Link>
           </p>
