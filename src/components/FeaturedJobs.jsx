@@ -10,13 +10,12 @@ const FeaturedJobs = () => {
     }, [])
     const getFeaturedJobsData = async () => {
         const {data} = await axios.get('http://localhost:5000/jobs')
-        console.log(data);
         setFeaturedJobs(data);
     }
     return (
         <section>
             <SectionTitles title="Featured Jobs" subtitle="Know your worth and find the job that qualify your life" />
-            <div className="max-w-7xl w-full px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 border-2 border-red-500">
+            <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
                 {
                     featuredJobs.map((job) => <FeaturedJobCard key={job._id} job={job} />)
                 }

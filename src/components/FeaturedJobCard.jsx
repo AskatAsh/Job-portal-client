@@ -5,6 +5,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 import useGetSalary from "../hooks/useGetSalary";
+import { format } from "date-fns";
 
 const FeaturedJobCard = ({ job }) => {
   const { title, company_logo, location, salaryRange, description, company, status, jobType, category, applicationDeadline } = job;
@@ -13,7 +14,7 @@ const FeaturedJobCard = ({ job }) => {
   return (
     <div className="p-4 md:p-6 bg-white dark:bg-gray-800 dark:bg-opacity-30 rounded-lg border border-gray-200 dark:border-gray-800 transition-all duration-300">
       {/* Left Section */}
-      <div className="flex flex-col items-start gap-4">
+      <div className="flex flex-col lg:flex-row items-start gap-4">
         {/* Logo */}
         <div className="w-14 h-14 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
           <img
@@ -26,11 +27,11 @@ const FeaturedJobCard = ({ job }) => {
         {/* Job Info */}
         <div>
           {/* Job title */}
-          <h3 className="text-lg font-semibold text-gray-700 dark:text-white mb-1">
+          <h3 className="text-lg font-semibold text-gray-700 dark:text-white mb-2">
             {title}
           </h3>
           {/* Other info */}
-          <div className="flex items-center flex-wrap gap-2 md:gap-3 text-gray-500 dark:text-gray-400 text-sm mb-1">
+          <div className="flex items-center flex-wrap gap-2 md:gap-3 text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-1">
             <span className="flex items-center gap-1">
               <IoBriefcaseOutline /> {company}
             </span>
@@ -38,17 +39,17 @@ const FeaturedJobCard = ({ job }) => {
               <GrLocation /> {location}
             </span>
             <span className="flex items-center gap-1">
-              <FiClock /> 11 hours ago
+              <FiClock /> Deadline: {format(new Date(applicationDeadline), "do LLL, yyyy")}
             </span>
             <span className="flex items-center gap-1">
-              <GiMoneyStack size={18} /> {salary}
+              <GiMoneyStack size={16} /> {salary}
             </span>
           </div>
           <p
-            className="text-sm text-gray-500 my-2 tooltip tooltip-top text-left"
+            className="text-sm text-gray-500 mt-2 tooltip tooltip-top text-left"
             data-tip={description}
           >
-            {description.substr(0, 70)}...{" "}
+            {description.substr(0, 65)}...{" "}
             <Link className="text-blue-500 dark:text-blue-400 hover:underline">
               Read More
             </Link>
