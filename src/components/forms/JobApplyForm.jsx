@@ -24,7 +24,7 @@ const JobApplyForm = () => {
     // console.log(jobApplication);
     try {
       const response = await axios.post(
-        "http://localhost:5000/job-applications",
+        `${import.meta.env.VITE_SERVER}/job-applications`,
         jobApplication,
         {
           headers: {

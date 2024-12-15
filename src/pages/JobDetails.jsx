@@ -22,7 +22,7 @@ const JobDetails = () => {
     try {
       setIsLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/jobDetails/${id}`
+        `${import.meta.env.VITE_SERVER}/jobDetails/${id}`
       );
       // console.log(data);
       setJobData(data);
