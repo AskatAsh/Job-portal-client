@@ -45,8 +45,8 @@ const AuthProvider = ({ children }) => {
     const observer = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        setLoading(false);
       }
+      setLoading(false);
     });
 
     return () => {

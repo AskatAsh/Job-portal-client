@@ -21,7 +21,7 @@ const JobDetails = () => {
     try {
       setIsLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/jobDetail/${id}`
+        `http://localhost:5000/jobDetails/${id}`
       );
       // console.log(data);
       setJobData(data);
