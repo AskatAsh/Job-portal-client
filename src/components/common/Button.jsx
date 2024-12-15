@@ -8,7 +8,7 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-    btnText: PropTypes.string,
+    btnText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     btnStyle: PropTypes.string,
     btnType: PropTypes.string,
 }
