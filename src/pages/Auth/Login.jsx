@@ -10,7 +10,6 @@ const Login = () => {
   const { googleSignIn, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -50,7 +49,7 @@ const Login = () => {
 
         <p className="mt-4 text-sm text-gray-800 dark:text-gray-400">
           Don&apos;t have an account?{" "}
-          <Link to={ROUTES.TOSIGNUP} className="text-blue-700 dark:text-blue-500 hover:underline">
+          <Link state={location?.state} to={ROUTES.TOSIGNUP} className="text-blue-700 dark:text-blue-500 hover:underline">
             Sign up
           </Link>
         </p>
