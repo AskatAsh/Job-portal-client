@@ -8,6 +8,7 @@ import SignUp from "./../pages/Auth/SignUp";
 import { ROUTES } from "../shared/constants/routes";
 import JobDetails from "../pages/JobDetails";
 import ProtectedRoute from "./ProtectedRoute";
+import JobApply from "../pages/JobApply";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <JobDetails />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: ROUTES.JOBAPPLY,
+        element: (
+          <ProtectedRoute>
+            <JobApply />
           </ProtectedRoute>
         ),
       },

@@ -6,6 +6,8 @@ import { FiClock } from "react-icons/fi";
 import { GiMoneyStack } from "react-icons/gi";
 import useGetSalary from "../hooks/useGetSalary";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
+import { ROUTES } from './../shared/constants/routes';
 const ApplyJobBanner = ({ job }) => {
   const {
     title,
@@ -73,10 +75,13 @@ const ApplyJobBanner = ({ job }) => {
         </div>
         {/* right section */}
         <div className="flex items-center justify-end gap-3">
-          <Button
-            btnText="Apply for Job"
-            btnStyle="btn-md bg-blue-500 hover:bg-blue-600 outline-none border-none text-white bg-opacity-90"
-          />
+          <Link to={ROUTES.JOBAPPLY}>
+            <Button
+              btnText="Apply for Job"
+              btnStyle="btn-md bg-blue-500 hover:bg-blue-600 outline-none border-none text-white bg-opacity-90"
+            />
+          </Link>
+
           <Button
             btnText={<IoBookmarksOutline size={20} />}
             btnStyle="btn-md text-blue-500 bg-blue-500 bg-opacity-15 hover:bg-opacity-90 hover:text-blue-50 dark:text-blue-400 dark:hover:text-blue-50"

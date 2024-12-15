@@ -6,4 +6,5 @@ export const ROUTES = {
     TOLOGIN: '/auth/login',
     TOSIGNUP: '/auth/signup',
     JOBDETAILS: '/jobDetails/:id',
+    JOBAPPLY: '/jobApply',
 }
