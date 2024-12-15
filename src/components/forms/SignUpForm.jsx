@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Input from "./../common/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import AuthContext from "./../../context/AuthContext";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const SignUpForm = () => {
+  const { createUser, setUser } = useAuthContext();
   const [showPass, setShowPass] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
-  const { createUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 

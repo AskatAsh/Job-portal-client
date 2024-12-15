@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import Input from "../common/Input";
-import AuthContext from "../../context/AuthContext";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const LoginForm = () => {
-  const {setUser, loginUser} = useContext(AuthContext);
+  const {setUser, loginUser} = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
 

@@ -3,11 +3,10 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import LoginForm from "../../components/forms/LoginForm";
-import { useContext } from "react";
-import AuthContext from "../../context/AuthContext";
+import useAuthContext from './../../hooks/useAuthContext';
 
 const Login = () => {
-  const { googleSignIn, setUser } = useContext(AuthContext);
+  const { googleSignIn, setUser } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
 
