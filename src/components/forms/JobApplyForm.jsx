@@ -1,9 +1,11 @@
 import Button from "./../common/Button";
 import useAuthContext from './../../hooks/useAuthContext';
+import { useParams } from "react-router-dom";
 
 const JobApplyForm = () => {
     const {user} = useAuthContext();
-    console.log(user);
+    const {id} = useParams();
+    console.log(id);
 
     const handleJobApplication = (e) => {
         e.preventDefault();
@@ -15,6 +17,7 @@ const JobApplyForm = () => {
             github_url,
             linkedin_url,
             resume_url,
+            job_id: id,
             applicant_email: user?.email,
         }
         console.log(jobApplication);
