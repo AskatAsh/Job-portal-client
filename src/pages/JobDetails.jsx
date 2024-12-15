@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../components/common/Loading";
 import ErrorMessages from "../components/common/ErrorMessages";
+import JobDetailSection from "../components/JobDetailSection";
 
 const JobDetails = () => {
   const [jobData, setJobData] = useState({});
@@ -54,7 +55,10 @@ const JobDetails = () => {
           onRetry={() => getJobDetails(id)}
         />
       ) : (
-        <ApplyJobBanner job={jobData} />
+        <>
+          <ApplyJobBanner job={jobData} />
+          <JobDetailSection job={jobData} />
+        </>
       )}
     </div>
   );

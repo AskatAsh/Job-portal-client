@@ -5,11 +5,12 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 import useGetSalary from "../hooks/useGetSalary";
-import { format } from "date-fns";
+import useFormatDeadline from "../hooks/useFormatDeadline";
 
 const FeaturedJobCard = ({ job }) => {
   const { _id, title, company_logo, location, salaryRange, description, company, status, jobType, category, applicationDeadline } = job;
   const { salary } = useGetSalary(salaryRange);
+  const formatedDeadline = useFormatDeadline(applicationDeadline);
 
   return (
     <div className="p-4 md:p-6 bg-white dark:bg-gray-800 dark:bg-opacity-30 rounded-lg border border-gray-200 dark:border-gray-800 transition-all duration-300">
@@ -39,7 +40,7 @@ const FeaturedJobCard = ({ job }) => {
               <GrLocation /> {location}
             </span>
             <span className="flex items-center gap-1">
-              <FiClock /> Deadline: {format(new Date(applicationDeadline), "do LLL, yyyy")}
+              <FiClock /> Deadline: {formatedDeadline}
             </span>
             <span className="flex items-center gap-1">
               <GiMoneyStack size={16} /> {salary}
