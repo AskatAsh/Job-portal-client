@@ -1,6 +1,6 @@
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import LoginForm from "../../components/forms/LoginForm";
 import { useContext } from "react";
@@ -8,13 +8,17 @@ import AuthContext from "../../context/AuthContext";
 
 const Login = () => {
   const { googleSignIn, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const newUser = result.user;
         setUser(newUser);
-        alert("Logged in Successfully!");
+        alert("Logged in Successfully! Redirecting user...");
+        navigate(location?.state || '/');
       })
       .catch((error) => {
         alert(error.code);

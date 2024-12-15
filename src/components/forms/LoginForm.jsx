@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import Input from "../common/Input";
-import Button from "../common/button";
 import AuthContext from "../../context/AuthContext";
+import Button from "../common/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const {setUser, loginUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,6 +19,7 @@ const LoginForm = () => {
       const user = result.user;
       setUser(user);
       alert("Login Successful.");
+      navigate(location?.state || '/');
     })
     .catch((error) => {
       alert(error.code);

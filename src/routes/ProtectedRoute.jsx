@@ -1,11 +1,12 @@
 import useAuthContext from './../hooks/useAuthContext';
 import { PropTypes } from 'prop-types';
 import Loading from './../components/common/Loading';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { ROUTES } from './../shared/constants/routes';
 
 const ProtectedRoute = ({children}) => {
     const {user, loading} = useAuthContext();
+    const location = useLocation();
 
     if(loading){
         return <Loading />;
@@ -16,7 +17,7 @@ const ProtectedRoute = ({children}) => {
     }
 
     return (
-        <Navigate to={ROUTES.TOLOGIN} />
+        <Navigate to={ROUTES.TOLOGIN} state={location.pathname} />
     );
 };
 
