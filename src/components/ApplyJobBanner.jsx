@@ -1,4 +1,4 @@
-import { IoBriefcaseOutline } from "react-icons/io5";
+import { IoBookmarksOutline, IoBriefcaseOutline } from "react-icons/io5";
 import Button from "./common/Button";
 import { GrLocation } from "react-icons/gr";
 import { format } from "date-fns";
@@ -78,8 +78,8 @@ const ApplyJobBanner = ({ job }) => {
             btnStyle="btn-md bg-blue-500 hover:bg-blue-600 outline-none border-none text-white bg-opacity-90"
           />
           <Button
-            btnText={"Bk"}
-            btnStyle="btn-md text-blue-500 bg-blue-500 bg-opacity-15 hover:bg-opacity-90 hover:text-blue-50 dark:text-blue-400"
+            btnText={<IoBookmarksOutline size={20} />}
+            btnStyle="btn-md text-blue-500 bg-blue-500 bg-opacity-15 hover:bg-opacity-90 hover:text-blue-50 dark:text-blue-400 dark:hover:text-blue-50"
           />
         </div>
       </div>
