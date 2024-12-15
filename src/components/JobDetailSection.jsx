@@ -19,6 +19,7 @@ const JobDetailSection = ({ job }) => {
     status,
     jobType,
     category,
+    requirements,
     applicationDeadline,
   } = job;
   const { salary } = useGetSalary(salaryRange);
@@ -96,6 +97,14 @@ const JobDetailSection = ({ job }) => {
                 <p className="text-gray-600">{salary}</p>
               </div>
             </li>
+          </ul>
+
+          {/* Skills */}
+          <h2 className="text-xl font-medium text-gray-700 mb-6 mt-10">Job Skills</h2>
+          <ul className="flex flex-wrap gap-2">
+            {
+                requirements.map((skill, idx) => <li className="text-blue-600 bg-blue-100 border-none text-sm rounded-md px-4 py-1.5" key={idx}>{skill}</li>)
+            }
           </ul>
         </div>
       </aside>
