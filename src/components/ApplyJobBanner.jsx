@@ -7,10 +7,10 @@ import { GiMoneyStack } from "react-icons/gi";
 import useGetSalary from "../hooks/useGetSalary";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-import { ROUTES } from './../shared/constants/routes';
 
 const ApplyJobBanner = ({ job }) => {
   const {
+    _id,
     title,
     company_logo,
     location,
@@ -77,7 +77,7 @@ const ApplyJobBanner = ({ job }) => {
         </div>
         {/* right section */}
         <div className="flex items-center justify-end gap-3">
-          <Link to={ROUTES.JOBAPPLY}>
+          <Link to={`/jobApply/${_id}`}>
             <Button
               btnText="Apply for Job"
               btnStyle="btn-md bg-blue-500 hover:bg-blue-600 outline-none border-none text-white bg-opacity-90"

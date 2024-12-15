@@ -1,6 +1,9 @@
 import Button from "./../common/Button";
+import useAuthContext from './../../hooks/useAuthContext';
 
 const JobApplyForm = () => {
+    const {user} = useAuthContext();
+    console.log(user);
 
     const handleJobApplication = (e) => {
         e.preventDefault();
@@ -11,7 +14,8 @@ const JobApplyForm = () => {
         const jobApplication = {
             github_url,
             linkedin_url,
-            resume_url
+            resume_url,
+            applicant_email: user?.email,
         }
         console.log(jobApplication);
     }
