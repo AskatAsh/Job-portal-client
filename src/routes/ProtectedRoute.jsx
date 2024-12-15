@@ -14,11 +14,7 @@ const ProtectedRoute = ({children}) => {
     if(user && user?.email){
         return children;
     }
-    console.log(user, loading);
 
-    if(!user){
-        <Navigate to="/auth/login" />
-    }
     return (
         <Navigate to={ROUTES.TOLOGIN} />
     );
