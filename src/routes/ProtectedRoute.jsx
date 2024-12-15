@@ -17,7 +17,7 @@ const ProtectedRoute = ({children}) => {
     }
 
     return (
-        <Navigate to={ROUTES.TOLOGIN} state={location.pathname} />
+        <Navigate to={ROUTES.TOLOGIN} state={location?.pathname} />
     );
 };
 

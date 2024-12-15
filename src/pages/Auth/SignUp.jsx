@@ -1,13 +1,16 @@
 import SignUpForm from "./../../components/forms/SignUpForm";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 const SignUp = () => {
   const {setUser, googleSignIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -15,6 +18,7 @@ const SignUp = () => {
         const newUser = result.user;
         setUser(newUser);
         alert("Account created Successfully!");
+        navigate(location?.state || '/');
       })
       .catch((error) => {
         alert(error.code);

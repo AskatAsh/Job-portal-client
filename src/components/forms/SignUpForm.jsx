@@ -1,13 +1,16 @@
 import { useContext, useState } from "react";
-import Button from "../common/button";
 import Input from "./../common/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import AuthContext from "./../../context/AuthContext";
+import Button from "../common/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
   const { createUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const checkPasswordValidity = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -50,6 +53,7 @@ const SignUpForm = () => {
         setUser(newUser);
         form.reset();
         alert("Account created Successfully!");
+        navigate(location?.state || '/');
       })
       .catch((error) => {
         alert(error.code);
