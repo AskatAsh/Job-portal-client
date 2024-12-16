@@ -47,13 +47,24 @@ const Navbar = () => {
       <li>
         <NavLink to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
       </li>
+      {user && user?.email ? (
+        <li>
+          <NavLink to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
+        </li>
+      ) : (
+        ""
+      )}
     </>
   );
 
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        pathname === "/" || pathname === "/auth/login" || pathname === "/auth/signup" ? "bg-transparent" : "bg-white dark:bg-gray-950"
+        pathname === "/" ||
+        pathname === "/auth/login" ||
+        pathname === "/auth/signup"
+          ? "bg-transparent"
+          : "bg-white dark:bg-gray-950"
       } ${
         isSticky
           ? "fixed bg-white dark:bg-gray-950 shadow-md border-0 dark:border-b dark:border-b-gray-800"

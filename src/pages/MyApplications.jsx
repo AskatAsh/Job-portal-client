@@ -12,7 +12,7 @@ const MyApplications = () => {
 
   useEffect(() => {
     getMyApplications();
-  });
+  }, []);
 
   const getMyApplications = async () => {
     try {
