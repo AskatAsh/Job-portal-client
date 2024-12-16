@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useAuthContext from "../hooks/useAuthContext";
 import axios from "axios";
 import Loading from "../components/common/Loading";
@@ -10,11 +10,7 @@ const MyApplications = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState({});
 
-  useEffect(() => {
-    getMyApplications();
-  }, []);
-
-  const getMyApplications = async () => {
+  const getMyApplications = useCallback(async () => {
     try {
       setIsLoading(true);
       // get applied jobs data
@@ -40,7 +36,12 @@ const MyApplications = () => {
       // close the loader
       setIsLoading(false);
     }
-  };
+  }, [user?.email]);
+  
+  useEffect(() => {
+    getMyApplications();
+  }, [getMyApplications]);
+
 
   return (
     <div className="pt-10 sm:pt-16">
