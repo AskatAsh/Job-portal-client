@@ -9,6 +9,7 @@ import { ROUTES } from "../shared/constants/routes";
 import JobDetails from "../pages/JobDetails";
 import ProtectedRoute from "./ProtectedRoute";
 import JobApply from "../pages/JobApply";
+import MyApplications from "../pages/MyApplications";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <JobApply />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: ROUTES.MYAPPLICATIONS,
+        element: (
+          <ProtectedRoute>
+            <MyApplications />
           </ProtectedRoute>
         ),
       },

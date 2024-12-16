@@ -7,4 +7,5 @@ export const ROUTES = {
     TOSIGNUP: '/auth/signup',
     JOBDETAILS: '/jobDetails/:id',
     JOBAPPLY: '/jobApply/:id',
+    MYAPPLICATIONS: '/myApplications'
 }
