@@ -7,7 +7,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 const AppliedJobsTable = ({ appliedJobs }) => {
   return (
-    <section className="max-w-7xl mx-auto w-11/12 p-4 md:p-6 lg:p-8 my-16 md:my-20 bg-white rounded-xl shadow-md overflow-hidden">
+    <section className="max-w-7xl mx-auto w-11/12 p-4 md:p-6 lg:p-8 my-16 md:my-20 bg-white dark:bg-gray-900 dark:bg-opacity-50 rounded-xl shadow-md overflow-hidden">
       <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-300">
         My Applied Jobs
       </h1>
@@ -16,7 +16,7 @@ const AppliedJobsTable = ({ appliedJobs }) => {
       <div className="overflow-x-auto mt-8">
         <table className="table">
           {/* head */}
-          <thead className="bg-blue-50 text-blue-500 text-base">
+          <thead className="bg-blue-50 dark:bg-blue-950 text-blue-500 text-base">
             <tr>
               <th></th>
               <th className="font-medium py-5">Job Title</th>
@@ -28,11 +28,11 @@ const AppliedJobsTable = ({ appliedJobs }) => {
           <tbody className="text-base text-gray-500 dark:text-gray-400">
             {/* mapping applied jobs in rows */}
             {appliedJobs.map((appliedJob, idx) => (
-              <tr key={appliedJob?.job_id} className="hover:bg-gray-50">
+              <tr key={appliedJob?.job_id} className="hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:bg-opacity-30">
                 <td className="py-6">{idx + 1}</td>
                 <td className="flex flex-col sm:flex-row gap-4 py-6">
                   <img
-                    className="w-14 h-14 bg-gray-100 rounded-md"
+                    className="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-md"
                     src={appliedJob?.company_logo}
                     alt={`image of ${appliedJob?.title}`}
                   />
@@ -61,10 +61,10 @@ const AppliedJobsTable = ({ appliedJobs }) => {
                 </td>
                 <td className="py-6">
                   <div className="flex items-start gap-2">
-                    <button className="w-8 h-8 bg-blue-50 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 hover:text-white tooltip tooltip-top" data-tip="view">
+                    <button className="w-8 h-8 bg-blue-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 dark:hover:bg-blue-800 hover:text-white tooltip tooltip-top" data-tip="view">
                       <FaRegEye />
                     </button>
-                    <button className="w-8 h-8 bg-red-50 rounded-md flex items-center justify-center text-red-500 hover:bg-red-400 hover:text-white tooltip tooltip-top" data-tip="Delete">
+                    <button className="w-8 h-8 bg-red-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-red-500 hover:bg-red-400 dark:hover:bg-red-800 hover:text-white tooltip tooltip-top" data-tip="Delete">
                       <RiDeleteBin6Line />
                     </button>
                   </div>
