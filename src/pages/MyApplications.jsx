@@ -3,6 +3,7 @@ import useAuthContext from "../hooks/useAuthContext";
 import axios from "axios";
 import Loading from "../components/common/Loading";
 import ErrorMessages from "../components/common/ErrorMessages";
+import AppliedJobsTable from "../components/AppliedJobsTable";
 
 const MyApplications = () => {
   const { user } = useAuthContext();
@@ -53,7 +54,8 @@ const MyApplications = () => {
           onRetry={() => getMyApplications()}
         />
       ) : (
-        <h1>My Applications: {appliedJobs.length}</h1>
+        // <h1>My Applications: {appliedJobs.length}</h1>
+        <AppliedJobsTable appliedJobs={appliedJobs} />
       )}
     </div>
   );
