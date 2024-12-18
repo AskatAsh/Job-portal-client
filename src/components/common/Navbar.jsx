@@ -48,9 +48,14 @@ const Navbar = () => {
         <NavLink to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
       </li>
       {user && user?.email ? (
-        <li>
-          <NavLink to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.ADDJOB}>Add Job</NavLink>
+          </li>
+        </>
       ) : (
         ""
       )}
