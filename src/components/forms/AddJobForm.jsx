@@ -18,7 +18,7 @@ const AddJobForm = () => {
       {/* Add job form */}
       <form onSubmit={handleAddJob} className="grid grid-cols-12 gap-5">
         {/* Job title */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Job Title*</span>
           </div>
@@ -31,7 +31,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* Company name */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Company Name*</span>
           </div>
@@ -44,7 +44,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* Job location */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Job Location*</span>
           </div>
@@ -57,7 +57,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* Company logo URL */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Company Logo URL*</span>
           </div>
@@ -70,7 +70,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* HR name */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">HR Name*</span>
           </div>
@@ -83,7 +83,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* HR email */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">HR Email*</span>
           </div>
@@ -96,7 +96,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* Job category */}
-        <label className="form-control w-full col-span-4">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-6 sm:col-span-4">
           <div className="label">
             <span className="label-text">Job Category*</span>
           </div>
@@ -115,7 +115,7 @@ const AddJobForm = () => {
           </select>
         </label>
         {/* Job type */}
-        <label className="form-control w-full col-span-4">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-6 sm:col-span-4">
           <div className="label">
             <span className="label-text">Job Type*</span>
           </div>
@@ -132,7 +132,7 @@ const AddJobForm = () => {
           </select>
         </label>
         {/* Job status */}
-        <label className="form-control w-full col-span-4">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-6 sm:col-span-4">
           <div className="label">
             <span className="label-text">Job Status*</span>
           </div>
@@ -146,9 +146,9 @@ const AddJobForm = () => {
           </select>
         </label>
         {/* Application deadline */}
-        <label className="form-control w-full col-span-3">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-6 sm:col-span-3">
           <div className="label">
-            <span className="label-text">Application Deadline*</span>
+            <span className="label-text">Apply Deadline*</span>
           </div>
           <input
             aria-label="Date"
@@ -160,9 +160,9 @@ const AddJobForm = () => {
           />
         </label>
         {/* Minimum salary */}
-        <label className="form-control w-full col-span-3">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-4 sm:col-span-3">
           <div className="label">
-            <span className="label-text">Salary (minimum)*</span>
+            <span className="label-text">Min. Salary*</span>
           </div>
           <input
             type="number"
@@ -174,9 +174,9 @@ const AddJobForm = () => {
           />
         </label>
         {/* Maximum salary */}
-        <label className="form-control w-full col-span-3">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-4 sm:col-span-3">
           <div className="label">
-            <span className="label-text">Salary (maximum)*</span>
+            <span className="label-text">Max. Salary*</span>
           </div>
           <input
             type="number"
@@ -188,7 +188,7 @@ const AddJobForm = () => {
           />
         </label>
         {/* Currency */}
-        <label className="form-control w-full col-span-3">
+        <label className="form-control w-full max-[500px]:col-span-12 col-span-4 sm:col-span-3">
           <div className="label">
             <span className="label-text">Currency*</span>
           </div>
@@ -205,7 +205,7 @@ const AddJobForm = () => {
           </select>
         </label>
         {/* Responsibilities */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Responsibilities*</span>
           </div>
@@ -217,7 +217,7 @@ const AddJobForm = () => {
           ></textarea>
         </label>
         {/* Requirements */}
-        <label className="form-control w-full col-span-6">
+        <label className="form-control w-full col-span-12 sm:col-span-6">
           <div className="label">
             <span className="label-text">Requirements*</span>
           </div>
