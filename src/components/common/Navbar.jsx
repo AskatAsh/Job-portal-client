@@ -6,6 +6,7 @@ import useTheme from "../../hooks/useTheme";
 import { FaMoon, FaSun } from "react-icons/fa";
 import logo from "../../../src/assets/images/jobhub-logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -136,12 +137,12 @@ const Navbar = () => {
               )}
             </button>
             {user && user?.email ? (
-              <button onClick={handleLogOut} className="btn btn-sm sm:btn-md">
-                Logout
+              <button onClick={handleLogOut} className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium">
+                Logout <FiLogOut size={18} />
               </button>
             ) : (
-              <Link to={ROUTES.TOLOGIN} className="btn btn-sm sm:btn-md">
-                Login
+              <Link to={ROUTES.TOLOGIN} className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium">
+                <FiLogIn size={18} /> Login
               </Link>
             )}
           </div>

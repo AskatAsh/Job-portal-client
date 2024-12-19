@@ -26,7 +26,7 @@ const SignUp = () => {
   return (
     <section className="flex flex-col md:flex-row min-h-dvh">
       {/* Left Section */}
-      <div className="flex-1 flex flex-col justify-center items-center p-8 bg-transperant dark:bg-gray-950 py-28">
+      <div className="flex-1 flex flex-col justify-center items-center p-8 bg-transperant py-28">
         <h2 className="text-2xl font-semibold mb-6 dark:text-white text-gray-900">
           Join us Now
         </h2>
@@ -55,7 +55,7 @@ const SignUp = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex-1 bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-100 flex flex-col justify-center items-center p-8">
+      <div className="flex-1 bg-gradient-to-br from-blue-500 from-0% via-blue-400 via-50% to-blue-500 to-100% dark:from-gray-900 dark:via-blue-900 dark:to-gray-950 text-white dark:text-blue-200 flex flex-col justify-center items-center p-8">
         <h2 className="text-4xl font-bold mb-4">
           Explore the world’s leading design portfolios.
         </h2>
