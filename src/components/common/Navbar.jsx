@@ -39,21 +39,21 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <NavLink to={ROUTES.HOME}>Home</NavLink>
+        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.HOME}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={ROUTES.TOLOGIN}>Login</NavLink>
+        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.TOLOGIN}>Login</NavLink>
       </li>
       <li>
-        <NavLink to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
+        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
       </li>
       {user && user?.email ? (
         <>
           <li>
-            <NavLink to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
+            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES.ADDJOB}>Add Job</NavLink>
+            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.ADDJOB}>Add Job</NavLink>
           </li>
         </>
       ) : (
