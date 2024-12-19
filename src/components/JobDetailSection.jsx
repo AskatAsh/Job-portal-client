@@ -8,24 +8,29 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import useFormatDeadline from "../hooks/useFormatDeadline";
+import { formatDistanceToNow } from "date-fns";
 
 const JobDetailSection = ({ job }) => {
   const {
     title,
-    company_logo,
     location,
     salaryRange,
-    company,
-    status,
-    jobType,
-    category,
+    // company_logo,
+    // company,
+    // status,
+    // jobType,
+    // category,
     description,
     requirements,
     responsibilities,
     applicationDeadline,
+    postedDate
   } = job;
   const { salary } = useGetSalary(salaryRange);
   const formatedDeadline = useFormatDeadline(applicationDeadline);
+  const currentDate = new Date().toLocaleString();
+  const jobPostedDate = new Date(postedDate || currentDate);
+  const jobPostedTime = formatDistanceToNow(jobPostedDate, {addSuffix: true});
 
   return (
     <div className="max-w-7xl w-full px-4 md:px-0 rounded-xl mx-auto grid grid-cols-1 md:grid-cols-12 my-16 gap-6">
@@ -69,8 +74,8 @@ const JobDetailSection = ({ job }) => {
             <li className="flex items-start gap-4">
               <MdOutlineDateRange className="text-blue-500 text-xl flex-shrink-0" />
               <div>
-                <p className="font-medium text-gray-700 dark:text-gray-300">Date Posted:</p>
-                <p className="text-gray-600 dark:text-gray-400">Posted 1 hours ago</p>
+                <p className="font-medium text-gray-700 dark:text-gray-300">Job Posted:</p>
+                <p className="text-gray-600 dark:text-gray-400">{jobPostedTime}</p>
               </div>
             </li>
 
