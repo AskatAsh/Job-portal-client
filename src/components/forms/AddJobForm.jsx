@@ -1,7 +1,9 @@
+import axios from "axios";
 import Button from "./../common/Button";
+import Swal from 'sweetalert2';
 
 const AddJobForm = () => {
-  const handleAddJob = (e) => {
+  const handleAddJob = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formEntries = Object.fromEntries(formData.entries());
@@ -9,8 +11,45 @@ const AddJobForm = () => {
     newJob.salary = {min: Number(min), max: Number(max), currency};
     newJob.requirements = requirements.split(', ');
     newJob.responsibilities = responsibilities.split(', ');
+
+    // get cuurent timeStamp
+    const currentDate = new Date().toLocaleString();
+    newJob.postedDate = currentDate;
+    console.log(currentDate);
     // console.log("Form data: ", formEntries);
     console.log(newJob);
+
+    // send job data to server
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER}/jobs`,
+        newJob,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        // success message
+        Swal.fire({
+          icon: "success",
+          title: "Job Posted",
+          text: "The Job has been successfully Posted!",
+        });
+      }
+    } catch (error) {
+      console.log("Error submitting Job post: ", error);
+      // failure message
+      Swal.fire({
+        icon: "error",
+        title: "Job Submission Failed",
+        text:
+          error.response?.data?.message ||
+          "An error occurred. Please try again later.",
+      });
+    }
   };
 
   return (

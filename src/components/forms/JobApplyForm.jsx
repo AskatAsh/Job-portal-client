@@ -42,7 +42,7 @@ const JobApplyForm = () => {
         });
       }
     } catch (error) {
-      console.log("Error submitting application: ", error);
+      // console.log("Error submitting application: ", error);
       // failure message
       Swal.fire({
         icon: "error",
