@@ -28,7 +28,7 @@ const JobDetailSection = ({ job }) => {
   } = job;
   const { salary } = useGetSalary(salaryRange);
   const formatedDeadline = useFormatDeadline(applicationDeadline);
-  const currentDate = new Date().toLocaleString();
+  const currentDate = new Date().toISOString();
   const jobPostedDate = new Date(postedDate || currentDate);
   const jobPostedTime = formatDistanceToNow(jobPostedDate, {addSuffix: true});
 

@@ -175,7 +175,7 @@ const AddJobForm = () => {
           <div className="label">
             <span className="label-text">Job Status*</span>
           </div>
-          <select defaultValue="" className="select select-bordered" name="jobStatus" required>
+          <select defaultValue="" className="select select-bordered" name="status" required>
             <option disabled value="">
               Select Job Status
             </option>
