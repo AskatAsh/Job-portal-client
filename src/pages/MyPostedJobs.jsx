@@ -14,11 +14,11 @@ const MyPostedJobs = () => {
   const getMyPostedJobs = useCallback(async () => {
     try {
       setIsLoading(true);
-      // get applied jobs data
+      // get posted jobs data
       const { data } = await axios.get(
         `${import.meta.env.VITE_SERVER}/jobs?email=${user?.email}`
       );
-
+      console.log(data);
       setPostedJobs(data);
     } catch (error) {
       // handle errors

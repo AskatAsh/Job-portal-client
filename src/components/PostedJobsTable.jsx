@@ -9,7 +9,7 @@ const PostedJobsTable = ({postedJobs}) => {
   return (
     <section className="max-w-7xl mx-auto w-11/12 p-4 md:p-6 lg:p-8 my-16 md:my-20 bg-white dark:bg-gray-900 dark:bg-opacity-50 rounded-xl shadow-md overflow-hidden">
       {/* Posted jobs table */}
-      <div className="overflow-x-auto mt-8">
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead className="bg-blue-50 dark:bg-blue-950 text-blue-500 text-base">
@@ -25,7 +25,7 @@ const PostedJobsTable = ({postedJobs}) => {
             {/* mapping applied jobs in rows */}
             {postedJobs.map((postedJob, idx) => (
               <tr
-                key={postedJob?.job_id}
+                key={postedJob?._id}
                 className="hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:bg-opacity-30"
               >
                 <td className="py-6">{idx + 1}</td>
@@ -52,7 +52,7 @@ const PostedJobsTable = ({postedJobs}) => {
                   </div>
                 </td>
                 <td className="py-6 text-sm">
-                  {format(new Date(postedJob?.deadline), "do LLL, yyyy")}
+                  {format(new Date(postedJob?.applicationDeadline), "do LLL, yyyy")}
                 </td>
                 <td className="py-6 text-green-600">
                   {postedJob?.status}
