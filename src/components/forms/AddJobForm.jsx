@@ -38,6 +38,7 @@ const AddJobForm = () => {
           title: "Job Posted",
           text: "The Job has been successfully Posted!",
         });
+        e.target.reset();
       }
     } catch (error) {
       console.log("Error submitting Job post: ", error);
