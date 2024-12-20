@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { FaRegEye } from "react-icons/fa";
+import { FaRegEdit, FaRegEye } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -59,11 +59,19 @@ const PostedJobsTable = ({postedJobs}) => {
                 </td>
                 <td className="py-6">
                   <div className="flex items-start gap-2">
+                    {/* view details */}
                     <button
                       className="w-8 h-8 bg-blue-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 dark:hover:bg-blue-800 hover:text-white tooltip tooltip-top"
-                      data-tip="view"
+                      data-tip="View"
                     >
                       <FaRegEye />
+                    </button>
+                    {/* edit job post */}
+                    <button
+                      className="w-8 h-8 bg-green-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-green-500 hover:bg-green-400 dark:hover:bg-green-800 hover:text-white tooltip tooltip-top"
+                      data-tip="Edit"
+                    >
+                      <FaRegEdit />
                     </button>
                     <button
                       className="w-8 h-8 bg-red-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-red-500 hover:bg-red-400 dark:hover:bg-red-800 hover:text-white tooltip tooltip-top"

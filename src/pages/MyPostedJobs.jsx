@@ -18,7 +18,7 @@ const MyPostedJobs = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_SERVER}/jobs?email=${user?.email}`
       );
-      console.log(data);
+    //   console.log(data);
       setPostedJobs(data);
     } catch (error) {
       // handle errors
