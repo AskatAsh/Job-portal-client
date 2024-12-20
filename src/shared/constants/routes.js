@@ -10,4 +10,5 @@ export const ROUTES = {
     MYAPPLICATIONS: '/myApplications',
     ADDJOB: '/addJob',
     MYPOSTEDJOBS: '/myPostedJobs',
+    VIEWAPPLICATIONS: '/viewApplications/:job_id'
 }

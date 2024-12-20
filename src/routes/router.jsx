@@ -12,6 +12,7 @@ import JobApply from "../pages/JobApply";
 import MyApplications from "../pages/MyApplications";
 import AddJob from "../pages/AddJob";
 import MyPostedJobs from "../pages/MyPostedJobs";
+import ViewApplications from "../pages/ViewApplications";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <MyPostedJobs />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: ROUTES.VIEWAPPLICATIONS,
+        element: (
+          <ProtectedRoute>
+            <ViewApplications />
           </ProtectedRoute>
         ),
       },

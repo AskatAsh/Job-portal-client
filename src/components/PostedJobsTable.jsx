@@ -3,9 +3,10 @@ import { FaRegEdit, FaRegEye } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
-const PostedJobsTable = ({postedJobs}) => {
+const PostedJobsTable = ({ postedJobs }) => {
   return (
     <section className="max-w-7xl mx-auto w-11/12 p-4 md:p-6 lg:p-8 my-16 md:my-20 bg-white dark:bg-gray-900 dark:bg-opacity-50 rounded-xl shadow-md overflow-hidden">
       {/* Posted jobs table */}
@@ -53,23 +54,26 @@ const PostedJobsTable = ({postedJobs}) => {
                   </div>
                 </td>
                 <td className="py-6 text-sm">
-                  {format(new Date(postedJob?.applicationDeadline), "do LLL, yyyy")}
+                  {format(
+                    new Date(postedJob?.applicationDeadline),
+                    "do LLL, yyyy"
+                  )}
                 </td>
                 <td className="py-6 text-sm font-medium">
                   {postedJob?.applicationCount || "N/A"}
                 </td>
-                <td className="py-6 text-green-600">
-                  {postedJob?.status}
-                </td>
+                <td className="py-6 text-green-600">{postedJob?.status}</td>
                 <td className="py-6">
                   <div className="flex items-start gap-2">
                     {/* view details */}
-                    <button
-                      className="w-8 h-8 bg-blue-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 dark:hover:bg-blue-800 hover:text-white tooltip tooltip-top"
-                      data-tip="View"
-                    >
-                      <FaRegEye />
-                    </button>
+                    <Link to={`/viewApplications/${postedJob?._id}`}>
+                      <button
+                        className="w-8 h-8 bg-blue-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 dark:hover:bg-blue-800 hover:text-white tooltip tooltip-top"
+                        data-tip="View"
+                      >
+                        <FaRegEye />
+                      </button>
+                    </Link>
                     {/* edit job post */}
                     <button
                       className="w-8 h-8 bg-green-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-green-500 hover:bg-green-400 dark:hover:bg-green-800 hover:text-white tooltip tooltip-top"
@@ -95,7 +99,7 @@ const PostedJobsTable = ({postedJobs}) => {
 };
 
 PostedJobsTable.propTypes = {
-    postedJobs: PropTypes.array
-}
+  postedJobs: PropTypes.array,
+};
 
 export default PostedJobsTable;
