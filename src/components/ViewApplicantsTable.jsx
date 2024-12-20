@@ -1,8 +1,42 @@
-import { FaRegEdit, FaRegEye } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import axios from "axios";
 import { PropTypes } from "prop-types";
+import Swal from "sweetalert2";
 
 const ViewApplicantsTable = ({ applications }) => {
+  const handleUpdateStatus = async (e, id) => {
+    const status = e.target.value;
+    console.log(status, id);
+
+    try {
+      const response = await axios.patch(
+        `${import.meta.env.VITE_SERVER}/job-applications/${id}`,
+        {status},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        // succes message
+        Swal.fire({
+          icon: "success",
+          title: "Update Application Status",
+          text: "Your application status has been successfully updated!",
+        });
+      }
+    } catch (error) {
+      // failure message
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text:
+          error.response?.data?.message ||
+          "An error occurred. Please try again later.",
+      });
+    }
+  };
+
   return (
     <section className="max-w-7xl mx-auto w-11/12 p-4 md:p-6 lg:p-8 my-16 md:my-20 bg-white dark:bg-gray-900 dark:bg-opacity-50 rounded-xl shadow-md overflow-hidden">
       {/* Posted jobs table */}
@@ -56,28 +90,19 @@ const ViewApplicantsTable = ({ applications }) => {
                   </a>
                 </td>
                 <td className="py-6">
-                  <div className="flex items-start gap-2">
-                    {/* view details */}
-                    <button
-                      className="w-8 h-8 bg-blue-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-blue-500 hover:bg-blue-400 dark:hover:bg-blue-800 hover:text-white tooltip tooltip-top"
-                      data-tip="View"
-                    >
-                      <FaRegEye />
-                    </button>
-                    {/* edit job post */}
-                    <button
-                      className="w-8 h-8 bg-green-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-green-500 hover:bg-green-400 dark:hover:bg-green-800 hover:text-white tooltip tooltip-top"
-                      data-tip="Edit"
-                    >
-                      <FaRegEdit />
-                    </button>
-                    <button
-                      className="w-8 h-8 bg-red-50 dark:bg-gray-800 rounded-md flex items-center justify-center text-red-500 hover:bg-red-400 dark:hover:bg-red-800 hover:text-white tooltip tooltip-top"
-                      data-tip="Delete"
-                    >
-                      <RiDeleteBin6Line />
-                    </button>
-                  </div>
+                  <select
+                    onChange={(e) => handleUpdateStatus(e, application?._id)}
+                    className="select w-full max-w-xs"
+                    defaultValue=""
+                  >
+                    <option disabled value="">
+                      Status
+                    </option>
+                    <option>Under Review</option>
+                    <option>Hired</option>
+                    <option>Rejected</option>
+                    <option>Accepted</option>
+                  </select>
                 </td>
               </tr>
             ))}
