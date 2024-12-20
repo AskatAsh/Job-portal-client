@@ -56,6 +56,9 @@ const Navbar = () => {
           <li>
             <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.ADDJOB}>Add Job</NavLink>
           </li>
+          <li>
+            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.MYPOSTEDJOBS}>Posted Jobs</NavLink>
+          </li>
         </>
       ) : (
         ""
