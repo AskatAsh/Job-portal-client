@@ -17,6 +17,7 @@ const PostedJobsTable = ({postedJobs}) => {
               <th></th>
               <th className="font-medium py-5">Job Title</th>
               <th className="font-medium py-5">Deadline</th>
+              <th className="font-medium py-5">Applicants</th>
               <th className="font-medium py-5">Status</th>
               <th className="font-medium py-5">Action</th>
             </tr>
@@ -53,6 +54,9 @@ const PostedJobsTable = ({postedJobs}) => {
                 </td>
                 <td className="py-6 text-sm">
                   {format(new Date(postedJob?.applicationDeadline), "do LLL, yyyy")}
+                </td>
+                <td className="py-6 text-sm font-medium">
+                  {postedJob?.applicationCount || "N/A"}
                 </td>
                 <td className="py-6 text-green-600">
                   {postedJob?.status}
