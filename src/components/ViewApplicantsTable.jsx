@@ -71,7 +71,7 @@ const ViewApplicantsTable = ({ applications }) => {
                     {application?.github_url}
                   </a>
                 </td>
-                <td className="py-6 text-sm">
+                <td className="py-6 text-sm hover:underline">
                   <a
                     href={application?.linkedin_url}
                     target="_blank"
@@ -80,7 +80,7 @@ const ViewApplicantsTable = ({ applications }) => {
                     {application?.linkedin_url}
                   </a>
                 </td>
-                <td className="py-6 text-sm">
+                <td className="py-6 text-sm hover:underline">
                   <a
                     href={application?.resume_url}
                     target="_blank"
@@ -92,7 +92,7 @@ const ViewApplicantsTable = ({ applications }) => {
                 <td className="py-6">
                   <select
                     onChange={(e) => handleUpdateStatus(e, application?._id)}
-                    className="select w-full max-w-xs"
+                    className="select w-28 max-w-xs bg-white dark:bg-gray-800"
                     defaultValue=""
                   >
                     <option disabled value="">
