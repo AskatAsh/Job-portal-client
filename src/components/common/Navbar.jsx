@@ -7,6 +7,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import logo from "../../../src/assets/images/jobhub-logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -17,11 +18,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
-        alert("User Signed out!");
+        toast.success("Succussfully Signed out!");
         setUser(null);
       })
       .catch((error) => {
-        alert(error.code);
+        toast.error(error.code);
       });
   };
 
