@@ -18,7 +18,7 @@ const FeaturedJobs = () => {
       setFeaturedJobs(data);
     } catch (error) {
       // handle errors
-      console.log(error);
+      // console.log(error);
       const errorMessage = {
         error: error.message,
         status: error.response?.status || "N/A",

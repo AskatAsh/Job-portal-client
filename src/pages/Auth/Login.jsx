@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import LoginForm from "../../components/forms/LoginForm";
 import useAuthContext from "./../../hooks/useAuthContext";
+import axios from "axios";
 
 const Login = () => {
   const { googleSignIn, setUser } = useAuthContext();
@@ -12,11 +13,24 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
+      .then(async (result) => {
         const newUser = result.user;
         setUser(newUser);
         alert("Logged in Successfully! Redirecting user...");
         navigate(location?.state || "/");
+        // jwt web token
+        const userInfo = { email: newUser.email };
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_SERVER}/jwt`,
+          userInfo,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        console.log(data);
       })
       .catch((error) => {
         alert(error.code);
@@ -64,7 +78,7 @@ const Login = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex-1 bg-gradient-to-br from-blue-500 from-0% via-blue-400 via-50% to-blue-500 to-100% dark:from-gray-900 dark:via-blue-900 dark:to-gray-950 text-white dark:text-blue-200 flex flex-col justify-center items-center p-8">
+      <div className="flex-1 bg-gradient-to-br from-blue-300 from-0% via-blue-400 via-50% to-blue-500 to-100% dark:from-gray-900 dark:via-blue-900 dark:to-gray-950 text-white dark:text-blue-200 flex flex-col justify-center items-center p-8">
         <h2 className="text-4xl font-bold mb-4">
           Explore the world’s leading design portfolios.
         </h2>

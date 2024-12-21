@@ -2,9 +2,10 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
+import axios from "axios";
 
 const LoginForm = () => {
-  const {setUser, loginUser} = useAuthContext();
+  const { setUser, loginUser } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -14,15 +15,27 @@ const LoginForm = () => {
     const email = form.email.value;
     const password = form.password.value;
     loginUser(email, password)
-    .then((result) => {
-      const user = result.user;
-      setUser(user);
-      alert("Login Successful.");
-      navigate(location?.state || '/');
-    })
-    .catch((error) => {
-      alert(error.code);
-    })
+      .then(async (result) => {
+        const user = result.user;
+        setUser(user);
+        alert("Login Successful.");
+        navigate(location?.state || '/');
+        const userInfo = { email: email };
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_SERVER}/jwt`,
+          userInfo,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        console.log(data);
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
   };
 
   return (
@@ -38,7 +51,10 @@ const LoginForm = () => {
           />
           <span className="text-gray-600 dark:text-gray-500">Remember me</span>
         </label>
-        <a href="#" className="text-blue-700 dark:text-blue-500 hover:underline text-sm">
+        <a
+          href="#"
+          className="text-blue-700 dark:text-blue-500 hover:underline text-sm"
+        >
           Forgot password?
         </a>
       </div>
