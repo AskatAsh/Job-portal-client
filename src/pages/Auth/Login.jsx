@@ -5,6 +5,7 @@ import { ROUTES } from "../../shared/constants/routes";
 import LoginForm from "../../components/forms/LoginForm";
 import useAuthContext from "./../../hooks/useAuthContext";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { googleSignIn, setUser } = useAuthContext();
@@ -16,8 +17,10 @@ const Login = () => {
       .then(async (result) => {
         const newUser = result.user;
         setUser(newUser);
-        alert("Logged in Successfully! Redirecting user...");
-        navigate(location?.state || "/");
+        // alert("Logged in Successfully! Redirecting user...");
+        toast.success("Signed in Successfully.");
+        // navigate(location?.state || "/");
+
         // jwt web token
         const userInfo = { email: newUser.email };
         const { data } = await axios.post(
@@ -116,6 +119,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      {/* <Toaster /> */}
     </section>
   );
 };

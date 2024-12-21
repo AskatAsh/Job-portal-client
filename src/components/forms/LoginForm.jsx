@@ -3,6 +3,7 @@ import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const { setUser, loginUser } = useAuthContext();
@@ -18,8 +19,9 @@ const LoginForm = () => {
       .then(async (result) => {
         const user = result.user;
         setUser(user);
-        alert("Login Successful.");
-        navigate(location?.state || '/');
+        toast.success("Login Successful.");
+        // alert("Login Successful.");
+        // navigate(location?.state || '/');
         const userInfo = { email: email };
         const { data } = await axios.post(
           `${import.meta.env.VITE_SERVER}/jwt`,

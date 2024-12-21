@@ -16,7 +16,10 @@ const MyApplications = () => {
       setIsLoading(true);
       // get applied jobs data
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER}/job-applications?email=${user?.email}`
+        `${import.meta.env.VITE_SERVER}/job-applications?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
       );
       setAppliedJobs(data);
     } catch (error) {
@@ -38,11 +41,10 @@ const MyApplications = () => {
       setIsLoading(false);
     }
   }, [user?.email]);
-  
+
   useEffect(() => {
     getMyApplications();
   }, [getMyApplications]);
-
 
   return (
     <div className="pt-10 sm:pt-16">
