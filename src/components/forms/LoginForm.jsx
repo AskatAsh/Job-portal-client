@@ -21,7 +21,7 @@ const LoginForm = () => {
         setUser(user);
         toast.success("Login Successful.");
         // alert("Login Successful.");
-        // navigate(location?.state || '/');
+        navigate(location?.state || '/');
         const userInfo = { email: email };
         const { data } = await axios.post(
           `${import.meta.env.VITE_SERVER}/jwt`,

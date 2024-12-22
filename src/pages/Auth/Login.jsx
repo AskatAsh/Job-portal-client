@@ -19,7 +19,7 @@ const Login = () => {
         setUser(newUser);
         // alert("Logged in Successfully! Redirecting user...");
         toast.success("Signed in Successfully.");
-        // navigate(location?.state || "/");
+        navigate(location?.state || "/");
 
         // jwt web token
         const userInfo = { email: newUser.email };

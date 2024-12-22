@@ -4,24 +4,39 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../shared/constants/routes";
 import useAuthContext from "../../hooks/useAuthContext";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const {setUser, googleSignIn} = useAuthContext();
+  const { setUser, googleSignIn } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then((result) => {
+      .then(async (result) => {
         const newUser = result.user;
         setUser(newUser);
-        alert("Account created Successfully!");
-        navigate(location?.state || '/');
+        toast.success("Account created Successfully!");
+        navigate(location?.state || "/");
+        // jwt web token
+        const userInfo = { email: newUser.email };
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_SERVER}/jwt`,
+          userInfo,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        console.log(data);
       })
       .catch((error) => {
         alert(error.code);
       });
-  }
+  };
 
   return (
     <section className="flex flex-col md:flex-row min-h-dvh">
@@ -32,7 +47,10 @@ const SignUp = () => {
         </h2>
 
         <div className="flex gap-4 mb-4 flex-col lg:flex-row max-w-md w-full">
-          <button onClick={handleGoogleSignIn} className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn border shadow-none border-gray-300 dark:border-gray-800 bg-transparent dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800 lg:w-auto gap-2 flex-1 text-gray-800 dark:text-gray-400"
+          >
             <FcGoogle className="text-xl" />
             Sign in with Google
           </button>
@@ -42,13 +60,18 @@ const SignUp = () => {
           </button>
         </div>
 
-        <div className="divider w-full max-w-md mx-auto text-gray-800 dark:text-gray-400">or</div>
+        <div className="divider w-full max-w-md mx-auto text-gray-800 dark:text-gray-400">
+          or
+        </div>
 
         <SignUpForm />
 
         <p className="mt-4 text-sm text-gray-800 dark:text-gray-400">
           Already have an account?{" "}
-          <Link to={ROUTES.TOLOGIN} className="text-blue-700 dark:text-blue-500 hover:underline">
+          <Link
+            to={ROUTES.TOLOGIN}
+            className="text-blue-700 dark:text-blue-500 hover:underline"
+          >
             Login
           </Link>
         </p>
