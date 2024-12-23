@@ -56,8 +56,8 @@ const AuthProvider = ({ children }) => {
             },
             withCredentials: true,
           })
-          .then((res) => {
-            console.log("logged in user: ", res.data);
+          .then(() => {
+            // console.log("logged in user: ", res.data);
             setLoading(false);
           });
       } else {
@@ -73,8 +73,8 @@ const AuthProvider = ({ children }) => {
               withCredentials: true,
             }
           )
-          .then((res) => {
-            console.log("Logout user: ", res.data);
+          .then(() => {
+            // console.log("Logout user: ", res.data);
             setLoading(false);
           });
       }
