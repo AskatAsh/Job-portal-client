@@ -10,6 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import auth from "./firebaseConfig";
+import axios from "axios";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -39,14 +40,44 @@ const AuthProvider = ({ children }) => {
   const signOutUser = () => {
     setLoading(true);
     return signOut(auth);
-  }
+  };
 
   useEffect(() => {
     const observer = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+      // console.log(currentUser);
+      if (currentUser?.email) {
         setUser(currentUser);
+        // set jwt in cookie after login or signup
+        const userInfo = { email: currentUser.email };
+        axios
+          .post(`${import.meta.env.VITE_SERVER}/jwt`, userInfo, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("logged in user: ", res.data);
+            setLoading(false);
+          });
+      } else {
+        // clear cookie after logout
+        axios
+          .post(
+            `${import.meta.env.VITE_SERVER}/logout`,
+            {},
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("Logout user: ", res.data);
+            setLoading(false);
+          });
       }
-      setLoading(false);
     });
 
     return () => {

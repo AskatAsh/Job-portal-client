@@ -2,7 +2,6 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
-import axios from "axios";
 import toast from "react-hot-toast";
 
 const LoginForm = () => {
@@ -20,23 +19,10 @@ const LoginForm = () => {
         const user = result.user;
         setUser(user);
         toast.success("Login Successful.");
-        // alert("Login Successful.");
         navigate(location?.state || '/');
-        const userInfo = { email: email };
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_SERVER}/jwt`,
-          userInfo,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        );
-        console.log(data);
       })
       .catch((error) => {
-        alert(error.code);
+        toast.error(error.code);
       });
   };
 
