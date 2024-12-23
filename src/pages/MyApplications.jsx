@@ -1,25 +1,23 @@
 import { useCallback, useEffect, useState } from "react";
 import useAuthContext from "../hooks/useAuthContext";
-import axios from "axios";
 import Loading from "../components/common/Loading";
 import ErrorMessages from "../components/common/ErrorMessages";
 import AppliedJobsTable from "../components/AppliedJobsTable";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyApplications = () => {
   const { user } = useAuthContext();
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState({});
+  const axiosInstance = useAxiosSecure();
 
   const getMyApplications = useCallback(async () => {
     try {
       setIsLoading(true);
       // get applied jobs data
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER}/job-applications?email=${user?.email}`,
-        {
-          withCredentials: true,
-        }
+      const { data } = await axiosInstance.get(
+        `/job-applications?email=${user?.email}`
       );
       setAppliedJobs(data);
     } catch (error) {
@@ -40,7 +38,7 @@ const MyApplications = () => {
       // close the loader
       setIsLoading(false);
     }
-  }, [user?.email]);
+  }, [user?.email, axiosInstance]);
 
   useEffect(() => {
     getMyApplications();
