@@ -33,7 +33,7 @@ const JobDetailSection = ({ job }) => {
   const jobPostedTime = formatDistanceToNow(jobPostedDate, {addSuffix: true});
 
   return (
-    <div className="max-w-7xl w-full px-4 md:px-0 rounded-xl mx-auto grid grid-cols-1 md:grid-cols-12 my-16 gap-6">
+    <div className="max-w-7xl w-full px-4 md:px-0 rounded-xl mx-auto grid grid-cols-1 md:grid-cols-12 my-6 gap-6">
       {/* left Section */}
       <section className="col-span-12 md:col-span-8 bg-white dark:bg-gray-900 rounded-xl p-5 sm:p-8">
         {/* Job Description */}

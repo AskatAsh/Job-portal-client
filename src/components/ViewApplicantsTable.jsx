@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const ViewApplicantsTable = ({ applications }) => {
   const handleUpdateStatus = async (e, id) => {
     const status = e.target.value;
-    console.log(status, id);
+    // console.log(status, id);
 
     try {
       const response = await axios.patch(
