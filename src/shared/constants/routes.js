@@ -9,6 +9,7 @@ export const ROUTES = {
     JOBAPPLY: '/jobApply/:id',
     MYAPPLICATIONS: '/myApplications',
     ADDJOB: '/addJob',
+    ALLJOBS: '/allJobs',
     MYPOSTEDJOBS: '/myPostedJobs',
     VIEWAPPLICATIONS: '/viewApplications/:job_id'
 }

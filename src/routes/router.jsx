@@ -13,6 +13,7 @@ import MyApplications from "../pages/MyApplications";
 import AddJob from "../pages/AddJob";
 import MyPostedJobs from "../pages/MyPostedJobs";
 import ViewApplications from "../pages/ViewApplications";
+import AllJobs from "../pages/AllJobs";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.HOME,
         element: <Home />,
+      },
+      {
+        path: ROUTES.ALLJOBS,
+        element: <AllJobs />,
       },
       {
         path: ROUTES.JOBDETAILS,
