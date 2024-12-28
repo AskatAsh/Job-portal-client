@@ -35,7 +35,7 @@ const useGetAllJobs = () => {
     getAllJobsData();
   }, [getAllJobsData]);
 
-  return [allJobs, isLoading, errorMessage, getAllJobsData];
+  return [allJobs, setAllJobs, isLoading, errorMessage, getAllJobsData];
 };
 
 export default useGetAllJobs;
