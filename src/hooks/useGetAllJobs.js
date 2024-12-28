@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
-const useGetAllJobs = () => {
+const useGetAllJobs = (sortBy = "") => {
   const [allJobs, setAllJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState({});
@@ -10,7 +10,7 @@ const useGetAllJobs = () => {
     try {
       setIsLoading(true);
       // get all jobs
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/jobs`);
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/jobs?sortBy=${sortBy}`);
       setAllJobs(data);
     } catch (error) {
       // handle errors
@@ -29,13 +29,13 @@ const useGetAllJobs = () => {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [sortBy]);
 
   useEffect(() => {
     getAllJobsData();
   }, [getAllJobsData]);
 
-  return [allJobs, setAllJobs, isLoading, errorMessage, getAllJobsData];
+  return [allJobs, isLoading, errorMessage, getAllJobsData];
 };
 
 export default useGetAllJobs;
