@@ -1,16 +1,27 @@
-// import { useCallback, useEffect, useState } from "react";
 import SectionTitles from "./common/SectionTitles";
-// import axios from "axios";
 import FeaturedJobCard from "./FeaturedJobCard";
 import ErrorMessages from "./common/ErrorMessages";
 import Loading from "./common/Loading";
 import useGetFeaturedJobsData from "../hooks/useGetFeaturedJobsData";
+import { ImSpinner3 } from "react-icons/im";
+import ReactiveButton from "reactive-button";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedJobs = () => {
-  // const [featuredJobs, setFeaturedJobs] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [errorMessage, setErrorMessage] = useState({});
-  const [featuredJobs, isLoading, errorMessage, getFeaturedJobsData] = useGetFeaturedJobsData();
+  const [state, setState] = useState("idle");
+  const navigate = useNavigate();
+  const handleClick = () => {
+    // Navigate to all jobs route
+    // console.log("Navigating to allJobs...");
+    setState("loading");
+    setTimeout(() => {
+      setState("success");
+      navigate("/allJobs");
+    }, 1000);
+  };
+  const [featuredJobs, isLoading, errorMessage, getFeaturedJobsData] =
+    useGetFeaturedJobsData();
 
   // const getFeaturedJobsData = useCallback(async () => {
   //   try {
@@ -60,6 +71,29 @@ const FeaturedJobs = () => {
             {featuredJobs.map((job) => (
               <FeaturedJobCard key={job._id} job={job} />
             ))}
+          </div>
+
+          <div className="text-center my-10">
+            <ReactiveButton
+              buttonState={state}
+              style={{
+                borderRadius: "5px",
+                backgroundColor: "#3B7BF2",
+              }}
+              block={false}
+              type="button"
+              size="large"
+              onClick={handleClick}
+              idleText={
+                <span className="flex items-center gap-2">View All Jobs</span>
+              }
+              loadingText={
+                <span className="flex items-center gap-2">
+                  Loading.. <ImSpinner3 />
+                </span>
+              }
+              animation={true}
+            />
           </div>
         </section>
       )}

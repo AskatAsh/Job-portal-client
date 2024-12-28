@@ -10,7 +10,7 @@ const Error = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     // Navigate to home or perform an action
-    console.log("Navigating to home...");
+    // console.log("Navigating to home...");
     setState("loading");
     setTimeout(() => {
       setState("success");
