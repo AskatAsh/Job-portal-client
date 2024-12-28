@@ -5,12 +5,13 @@ const useGetFeaturedJobsData = () => {
   const [featuredJobs, setFeaturedJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState({});
+  const limit = 6;
 
   const getFeaturedJobsData = useCallback(async () => {
     try {
       setIsLoading(true);
       // get jobs
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/jobs`);
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/jobs?limit=${limit}`);
       setFeaturedJobs(data);
     } catch (error) {
       // handle errors
