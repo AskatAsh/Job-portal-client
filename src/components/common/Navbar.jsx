@@ -47,9 +47,6 @@ const Navbar = () => {
         <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.ALLJOBS}>All Jobs</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.TOLOGIN}>Login</NavLink>
-      </li>
-      <li>
         <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
       </li>
       {user && user?.email ? (
@@ -73,9 +70,9 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full transition-all duration-300 z-50 ${
-        pathname === "/" ||
-        pathname === "/auth/login" ||
-        pathname === "/auth/signup"
+        pathname === ROUTES.HOME ||
+        pathname === ROUTES.TOLOGIN ||
+        pathname === ROUTES.TOSIGNUP
           ? "bg-transparent"
           : "bg-white dark:bg-gray-950"
       } ${

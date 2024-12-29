@@ -45,14 +45,14 @@ const AllJobs = () => {
         <h1 className="text-4xl font-bold text-center pt-10 md:pt-16 mb-8">
           All Jobs in JobHub
         </h1>
-        <div className="max-w-7xl w-full mx-auto flex items-center justify-end gap-3 border-b py-4">
+        <div className="max-w-7xl w-11/12 mx-auto flex items-center justify-end gap-3 border-b dark:border-b-gray-800 py-4">
           {/* filter by price */}
           <div className="flex items-center gap-2">
-            <BsSortDown size={40} />
+            <BsSortDown className="text-2xl sm:text-4xl" />
             <select
               onChange={handleSortAllJobsByPrice}
               defaultValue={""}
-              className="select select-bordered w-full max-w-xs"
+              className="select select-bordered select-sm sm:select-md"
             >
               <option value={""}>Default</option>
               <option value={"low2high"}>Salary Low to High</option>
@@ -68,7 +68,7 @@ const AllJobs = () => {
             onRetry={() => getAllJobsData()}
           />
         ) : (
-          <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+          <div className="max-w-7xl w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
             {allJobs.map((job) => (
               <FeaturedJobCard key={job._id} job={job} />
             ))}
