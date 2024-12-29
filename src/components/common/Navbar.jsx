@@ -41,24 +41,78 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.HOME}>Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+              : ""
+          }
+          to={ROUTES.HOME}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.ALLJOBS}>All Jobs</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+              : ""
+          }
+          to={ROUTES.ALLJOBS}
+        >
+          All Jobs
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.TOSIGNUP}>Sign Up</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+              : ""
+          }
+          to={ROUTES.TOSIGNUP}
+        >
+          Sign Up
+        </NavLink>
       </li>
       {user && user?.email ? (
         <>
           <li>
-            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.MYAPPLICATIONS}>Applied Jobs</NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+                  : ""
+              }
+              to={ROUTES.MYAPPLICATIONS}
+            >
+              Applied Jobs
+            </NavLink>
           </li>
           <li>
-            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.ADDJOB}>Add Job</NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+                  : ""
+              }
+              to={ROUTES.ADDJOB}
+            >
+              Add Job
+            </NavLink>
           </li>
           <li>
-            <NavLink className={({isActive}) => isActive ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500": ""} to={ROUTES.MYPOSTEDJOBS}>Posted Jobs</NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-transparent font-semibold text-blue-500 dark:text-blue-400 focus:bg-transparent focus:text-blue-500"
+                  : ""
+              }
+              to={ROUTES.MYPOSTEDJOBS}
+            >
+              Posted Jobs
+            </NavLink>
           </li>
         </>
       ) : (
@@ -84,38 +138,9 @@ const Navbar = () => {
       <nav className="max-w-[1400px] w-full mx-auto px-4 md:px-8 xl:px-10">
         <div className="navbar">
           <div className="navbar-start">
-            <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost lg:hidden p-0"
-              >
-                <AiOutlineMenu size={20} />
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg> */}
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >
-                {navlinks}
-              </ul>
-            </div>
             <Link
               to={ROUTES.HOME}
-              className={`btn btn-ghost text-xl text-gray-800 font-semibold ${
+              className={`btn btn-ghost text-xl text-gray-800 font-semibold pl-0 ${
                 isSticky
                   ? "text-gray-800 dark:text-gray-100"
                   : "dark:text-gray-100"
@@ -141,14 +166,36 @@ const Navbar = () => {
               )}
             </button>
             {user && user?.email ? (
-              <button onClick={handleLogOut} className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium">
+              <button
+                onClick={handleLogOut}
+                className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium"
+              >
                 Logout <FiLogOut size={18} />
               </button>
             ) : (
-              <Link to={ROUTES.TOLOGIN} className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium">
+              <Link
+                to={ROUTES.TOLOGIN}
+                className="btn btn-sm dark:bg-blue-500 dark:text-white font-medium"
+              >
                 <FiLogIn size={18} /> Login
               </Link>
             )}
+            {/* dropdown menu */}
+            <div className="dropdown ml-2">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden p-0"
+              >
+                <AiOutlineMenu size={20} />
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-md dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-36 p-2 shadow right-0"
+              >
+                {navlinks}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
