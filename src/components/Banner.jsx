@@ -107,7 +107,7 @@ const Banner = () => {
                 // repeatType: "reverse",
                 ease: "easeOut",
               }}
-              className="absolute lg:bottom-0 lg:right-0 w-60 sm:h-48 bg-white rounded-3xl overflow-hidden shadow-[0px_10px_20px_0px_#00000030] transform lg:translate-x-8 lg:translate-y-20 left-1/3 md:left-96 top-1/3 md:top-40 md:translate-x-0 md:translate-y-0 border-b-8 border-l-8"
+              className="absolute lg:bottom-0 lg:right-0 w-60 sm:h-48 bg-white rounded-3xl overflow-hidden shadow-[0px_10px_20px_0px_#00000030] transform lg:translate-x-8 lg:translate-y-20 left-1/3 md:left-96 top-1/3 md:top-40 md:translate-x-0 md:translate-y-0 border-8"
             >
               <img
                 src="https://i.ibb.co.com/NL1nV4X/happy-overjoyed-business-team-celebrate-corporate-victory-93675-134733.jpg"
