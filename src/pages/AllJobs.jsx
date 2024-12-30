@@ -5,8 +5,12 @@ import FeaturedJobCard from "../components/FeaturedJobCard";
 import useGetAllJobs from "../hooks/useGetAllJobs";
 import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
+import { FaFilter } from "react-icons/fa";
 
 const AllJobs = () => {
+  // const [minSalary, setMinSalary] = useState("");
+  // const [maxSalary, setMaxSalary] = useState("");
+  const [modal, setModal] = useState(false);
   const [sortBy, setSortBy] = useState("");
   const [searchKey, setSearchKey] = useState("");
   const [debouncedSearchKey, setDebouncedSearchKey] = useState("");
@@ -51,7 +55,7 @@ const AllJobs = () => {
     }, 1200);
 
     return () => clearTimeout(searchHandler);
-  }, [searchKey])
+  }, [searchKey]);
 
   const handleJobSearch = (e) => {
     e.preventDefault();
@@ -83,21 +87,29 @@ const AllJobs = () => {
               </button>
             </label>
           </form>
-          {/* filter by price */}
-          <div className="flex items-center gap-2">
-            <BsSortDown className="text-2xl sm:text-4xl" />
-            <select
-              onChange={handleSortAllJobsByPrice}
-              defaultValue={""}
-              className="select select-bordered select-sm sm:select-md"
-            >
-              <option value={""}>Default</option>
-              <option value={"low2high"}>Salary Low to High</option>
-              <option value={"high2low"}>Salary High to Low</option>
-            </select>
+          <div className="flex items-center gap-3">
+            {/* filter modal */}
+            <button onClick={() => setModal(!modal)} className="btn bg-white dark:bg-base-100 border-gray-300 shadow-none dark:border-gray-700 flex items-center gap-2">
+              <FaFilter /> Filter
+            </button>
+            {/* select sort by price options */}
+            <div className="flex items-center flex-wrap gap-2">
+              <BsSortDown className="text-2xl" />
+              <select
+                onChange={handleSortAllJobsByPrice}
+                defaultValue={""}
+                className="select select-bordered select-md"
+              >
+                <option value={""}>Default</option>
+                <option value={"low2high"}>Salary Low to High</option>
+                <option value={"high2low"}>Salary High to Low</option>
+              </select>
+            </div>
           </div>
         </div>
-        <p className="py-3 max-w-7xl w-11/12 mx-auto">Showing [{allJobs.length}] Results</p>
+        <p className="py-3 max-w-7xl w-11/12 mx-auto">
+          Showing [{allJobs.length}] Results
+        </p>
         {isLoading ? (
           <Loading />
         ) : errorMessage.message ? (
@@ -108,7 +120,11 @@ const AllJobs = () => {
         ) : (
           <>
             {allJobs.length === 0 ? (
-              <><p className="text-center mt-10 text-xl">Sorry, No data found!</p></>
+              <>
+                <p className="text-center mt-10 text-xl">
+                  Sorry, No data found!
+                </p>
+              </>
             ) : (
               <div className="max-w-7xl w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
                 {allJobs.map((job) => (
@@ -118,6 +134,32 @@ const AllJobs = () => {
             )}
           </>
         )}
+        <dialog id="filter" className={`modal ${modal ? "modal-open": ""}`}>
+          <div className="modal-box">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button onClick={() => setModal(!modal)} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
+            </form>
+            <h3 className="font-bold text-lg border-b dark:border-b-gray-700 pb-2 mb-6">Filter</h3>
+            {/* filter*/}
+            <div className="flex items-center flex-wrap gap-4">
+              {/* set minimum salary */}
+              <input
+                type="number"
+                placeholder="minimum salary"
+                className="input input-bordered w-full flex-1"
+              />
+              {/* set maximum salary */}
+              <input
+                type="number"
+                placeholder="maximum salary"
+                className="input input-bordered w-full flex-1"
+              />
+            </div>
+          </div>
+        </dialog>
       </section>
     </>
   );
