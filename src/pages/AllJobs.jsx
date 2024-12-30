@@ -8,15 +8,17 @@ import { IoSearch } from "react-icons/io5";
 import { FaFilter } from "react-icons/fa";
 
 const AllJobs = () => {
-  // const [minSalary, setMinSalary] = useState("");
-  // const [maxSalary, setMaxSalary] = useState("");
+  const [minSalary, setMinSalary] = useState("");
+  const [maxSalary, setMaxSalary] = useState("");
   const [modal, setModal] = useState(false);
   const [sortBy, setSortBy] = useState("");
   const [searchKey, setSearchKey] = useState("");
   const [debouncedSearchKey, setDebouncedSearchKey] = useState("");
   const [allJobs, isLoading, errorMessage, getAllJobsData] = useGetAllJobs(
     sortBy,
-    debouncedSearchKey
+    debouncedSearchKey,
+    minSalary,
+    maxSalary
   );
 
   //   const [copyOfAllJobs, setCopyOfAllJobs] = useState([]);
@@ -62,6 +64,15 @@ const AllJobs = () => {
     setSearchKey(e.target.keywords.value);
   };
 
+  const handleFilter = (e) => {
+    e.preventDefault();
+    const filter = e.target;
+    const minSalary = filter.minSalary.value;
+    const maxSalary = filter.maxSalary.value;
+    setMinSalary(minSalary);
+    setMaxSalary(maxSalary);
+  };
+
   return (
     <>
       <section className="py-10 md:py-16">
@@ -70,7 +81,7 @@ const AllJobs = () => {
         </h1>
         <div className="max-w-7xl w-11/12 mx-auto flex items-center justify-between flex-wrap gap-3 border-b dark:border-b-gray-800 py-4">
           {/* search for jobs */}
-          <form onSubmit={handleJobSearch} className="max-w-xl w-full">
+          <form onSubmit={handleJobSearch} className="max-w-xl flex-1">
             <label className="input input-bordered flex items-center gap-2 pr-0 py-6">
               <input
                 onKeyUp={(e) => setSearchKey(e.target.value)}
@@ -87,13 +98,16 @@ const AllJobs = () => {
               </button>
             </label>
           </form>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-1 justify-between sm:justify-end">
             {/* filter modal */}
-            <button onClick={() => setModal(!modal)} className="btn bg-white dark:bg-base-100 border-gray-300 shadow-none dark:border-gray-700 flex items-center gap-2">
+            <button
+              onClick={() => setModal(!modal)}
+              className="btn bg-white dark:bg-base-100 border-gray-300 shadow-none dark:border-gray-700 flex items-center gap-2"
+            >
               <FaFilter /> Filter
             </button>
             {/* select sort by price options */}
-            <div className="flex items-center flex-wrap gap-2">
+            <div className="flex items-center gap-2">
               <BsSortDown className="text-2xl" />
               <select
                 onChange={handleSortAllJobsByPrice}
@@ -134,30 +148,47 @@ const AllJobs = () => {
             )}
           </>
         )}
-        <dialog id="filter" className={`modal ${modal ? "modal-open": ""}`}>
+        <dialog id="filter" className={`modal ${modal ? "modal-open" : ""}`}>
           <div className="modal-box">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button onClick={() => setModal(!modal)} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              <button
+                onClick={() => setModal(!modal)}
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
                 ✕
               </button>
             </form>
-            <h3 className="font-bold text-lg border-b dark:border-b-gray-700 pb-2 mb-6">Filter</h3>
+            <h3 className="font-bold text-lg border-b dark:border-b-gray-700 pb-2 mb-6">
+              Filter
+            </h3>
             {/* filter*/}
-            <div className="flex items-center flex-wrap gap-4">
+            <form
+              onSubmit={handleFilter}
+              className="flex items-center flex-wrap gap-4"
+            >
               {/* set minimum salary */}
               <input
+                name="minSalary"
                 type="number"
                 placeholder="minimum salary"
                 className="input input-bordered w-full flex-1"
               />
               {/* set maximum salary */}
               <input
+                name="maxSalary"
                 type="number"
                 placeholder="maximum salary"
                 className="input input-bordered w-full flex-1"
               />
-            </div>
+              <button
+                type="submit"
+                onClick={() => setModal(!modal)}
+                className="btn w-full bg-blue-500 text-white"
+              >
+                Apply Filter
+              </button>
+            </form>
           </div>
         </dialog>
       </section>
