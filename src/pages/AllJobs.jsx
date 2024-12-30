@@ -62,18 +62,18 @@ const AllJobs = () => {
     <>
       <section className="py-10 md:py-16">
         <h1 className="text-4xl font-bold text-center pt-10 md:pt-16 mb-8">
-          All Jobs in JobHub
+          Jobs in JobHub
         </h1>
         <div className="max-w-7xl w-11/12 mx-auto flex items-center justify-between flex-wrap gap-3 border-b dark:border-b-gray-800 py-4">
           {/* search for jobs */}
-          <form onSubmit={handleJobSearch} className="max-w-96 w-full">
+          <form onSubmit={handleJobSearch} className="max-w-xl w-full">
             <label className="input input-bordered flex items-center gap-2 pr-0 py-6">
               <input
                 onKeyUp={(e) => setSearchKey(e.target.value)}
                 name="keywords"
                 type="text"
                 className="grow"
-                placeholder="Search by location"
+                placeholder="Search with job title, category, company, location"
               />
               <button
                 type="submit"
