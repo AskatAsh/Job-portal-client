@@ -35,7 +35,7 @@ const JobDetailSection = ({ job }) => {
   return (
     <div className="max-w-7xl w-full px-4 md:px-0 rounded-xl mx-auto grid grid-cols-1 md:grid-cols-12 my-6 gap-6">
       {/* left Section */}
-      <section className="col-span-12 md:col-span-8 bg-white dark:bg-gray-900 rounded-xl p-5 sm:p-8">
+      <section className="col-span-12 md:col-span-8 bg-white dark:bg-gray-900 dark:bg-opacity-30 rounded-xl p-5 sm:p-8">
         {/* Job Description */}
         <h2 className="text-xl font-medium text-gray-800 dark:text-gray-300 mb-5">
           Job Description
@@ -65,7 +65,7 @@ const JobDetailSection = ({ job }) => {
 
       {/* right section */}
       <aside className="col-span-12 md:col-span-4">
-        <div className="bg-blue-50 dark:bg-blue-950 dark:bg-opacity-70 p-5 sm:p-8 rounded-xl">
+        <div className="bg-blue-50 dark:bg-blue-950 dark:bg-opacity-30 p-5 sm:p-8 rounded-xl">
           <h2 className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-6">
             Job Overview
           </h2>
